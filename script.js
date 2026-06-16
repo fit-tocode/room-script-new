@@ -1,7 +1,7 @@
 /* ROOM */
 var roomName = " 💠    [ʀꜱɪ|ɪᴅ]  -  Scrim Room";
-var roomPassword = "s6";
-const maxPlayers = 25; 
+var roomPassword = "s5";
+const maxPlayers = 30; 
 const roomPublic = true; 
 const geo = [{ lat: 10.7748, lon: 106.647  , code: "id" }]; //liga new region
 
@@ -2241,12 +2241,7 @@ room.onPlayerBallKick = function (player) {
   }
 
   if (game.rsActive == false && (game.outStatus == "redThrow" || game.outStatus == "blueThrow")) {
-    game.outStatus = "";
-    game.rsActive = true;
-    game.rsReady = false;
-    room.setDiscProperties(0, { color: "0xffffff" });
-    game.rsTimer = 1000000;
-    game.warningCount++;
+    game.throwinKicked = true;
   }
 };
 
@@ -2551,6 +2546,28 @@ function swapTeamsAndAnnounce() {
   announce("🔄 Teams Swapped");
 }
 
+function resetThrowInFor(status) {
+  const color = status == "blueThrow" ? "0x0fbcf9" : "0xff3f34";
+
+  game.outStatus = status;
+  game.throwinKicked = false;
+  game.bringThrowBack = false;
+  game.pushedOut = false;
+  game.rsTimer = 0;
+  game.warningCount++;
+
+  room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
+  room.setDiscProperties(0, {
+    xspeed: 0,
+    yspeed: 0,
+    color: color,
+    x: game.ballOutPositionX,
+    y: game.throwInPosY,
+    xgravity: 0,
+    ygravity: 0,
+  });
+}
+
 function realSoccerRef() {
   blockThrowIn();
   blockGoalKick();
@@ -2681,11 +2698,11 @@ function realSoccerRef() {
       game.ballOutPositionX = Math.round(room.getBallPosition().x * 10) / 10;
       if (room.getBallPosition().y > 611.45) {
         game.ballOutPositionY = 400485;
-        game.throwInPosY = 610;
+        game.throwInPosY = 618;
       }
       if (room.getBallPosition().y < -611.45) {
         game.ballOutPositionY = -400485;
-        game.throwInPosY = -610;
+        game.throwInPosY = -618;
       }
       if (room.getBallPosition().x > 1130) {
         game.ballOutPositionX = 1130;
@@ -2851,6 +2868,35 @@ function realSoccerRef() {
           room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
         });
       }
+    }
+  }
+
+  if (game.rsActive == false && (game.outStatus == "redThrow" || game.outStatus == "blueThrow")) {
+    const ballPosition = room.getBallPosition();
+    const ballInsidePitch = ballPosition.y < 611.45 && ballPosition.y > -611.45;
+    const ballStillOutside = ballPosition.y > 611.45 || ballPosition.y < -611.45;
+    const ballMovedTooFar = ballStillOutside && (ballPosition.x < game.ballOutPositionX - throwinDistance || ballPosition.x > game.ballOutPositionX + throwinDistance);
+
+    if (ballMovedTooFar && game.bringThrowBack == false) {
+      game.bringThrowBack = true;
+      resetThrowInFor(game.outStatus == "redThrow" ? "blueThrow" : "redThrow");
+    } else if (ballInsidePitch && game.throwinKicked == false && game.pushedOut == false) {
+      resetThrowInFor(game.outStatus == "redThrow" ? "blueThrow" : "redThrow");
+    } else if (ballInsidePitch && game.throwinKicked == true) {
+      game.outStatus = "";
+      game.rsActive = true;
+      game.rsReady = false;
+      game.throwinKicked = false;
+      game.bringThrowBack = false;
+      game.pushedOut = false;
+      room.setDiscProperties(0, { color: "0xffffff" });
+      game.rsTimer = 1000000;
+      game.warningCount++;
+    }
+
+    if (room.getBallPosition().y.toFixed(1) == game.throwInPosY.toFixed(1) && room.getBallPosition().x.toFixed(1) == game.ballOutPositionX.toFixed(1)) {
+      game.bringThrowBack = false;
+      game.pushedOut = false;
     }
   }
 }
