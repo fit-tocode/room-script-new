@@ -13,7 +13,7 @@ var throwinDistance = 270; // distance players can move the ball during throw in
 var gameTime = 7; //default game time if 0 is selected
 
 const room = HBInit({
-	token: "thr1.AAAAAGoxMWjuKORzpJ--ow.JuHyP1mE-WQ",
+  token: "thr1.AAAAAGoxMWjuKORzpJ--ow.JuHyP1mE-WQ",
   roomName: roomName,
   maxPlayers: maxPlayers,
   public: roomPublic,
@@ -2694,6 +2694,7 @@ function realSoccerRef() {
         game.ballOutPositionX = -1130;
       }
 
+      room.setDiscProperties(0, { xspeed: 0, yspeed: 0, x: game.ballOutPositionX, y: game.throwInPosY, xgravity: 0, ygravity: 0 });
       const throwLastTouchTeam = lastPlayersTouched[0] != null ? lastPlayersTouched[0].team : game.rsTouchTeam;
 
       if (throwLastTouchTeam == 1) {
@@ -2703,7 +2704,6 @@ function realSoccerRef() {
           game.throwinKicked = false;
           game.rsTimer = 0;
           game.rsReady = true;
-          room.setDiscProperties(0, { xspeed: 0, yspeed: 0, x: game.ballOutPositionX, y: game.throwInPosY, xgravity: 0, ygravity: 0 });
           room.setDiscProperties(0, { color: "0x0fbcf9" });
         });
         sleep(1000).then(() => { // Total delay tetap terjaga (30 + 30)
@@ -2716,7 +2716,6 @@ function realSoccerRef() {
           game.throwinKicked = false;
           game.rsTimer = 0;
           game.rsReady = true;
-          room.setDiscProperties(0, { xspeed: 0, yspeed: 0, x: game.ballOutPositionX, y: game.throwInPosY, xgravity: 0, ygravity: 0 });
           room.setDiscProperties(0, { color: "0xff3f34" });
         });
         sleep(1000).then(() => {
