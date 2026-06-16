@@ -1,7 +1,7 @@
 /* ROOM */
 var roomName = " 💠    [ʀꜱɪ|ɪᴅ]  -  Scrim Room";
-var roomPassword = "s5";
-const maxPlayers = 30; 
+var roomPassword = "s6";
+const maxPlayers = 25; 
 const roomPublic = true; 
 const geo = [{ lat: 10.7748, lon: 106.647  , code: "id" }]; //liga new region
 
@@ -13,6 +13,7 @@ var throwinDistance = 270; // distance players can move the ball during throw in
 var gameTime = 7; //default game time if 0 is selected
 
 const room = HBInit({
+	token: "thr1.AAAAAGoxMWjuKORzpJ--ow.JuHyP1mE-WQ",
   roomName: roomName,
   maxPlayers: maxPlayers,
   public: roomPublic,
@@ -928,6 +929,7 @@ let link = ["https://www.haxball.com/play?c=_", "https://www.haxball.com", "haxb
 var lastTeamTouched; // records who was the last to touch the ball
 var lastPlayersTouched; // allows you to receive good goal notifications (must be lastPlayersKicked, waiting for a next update to get better control of shots on target)
 var lastBallPositionForTouch = null;
+var previousBallPositionForTouch = null;
 var countAFK = false; // created to get better control of the activity, kicks if it's AFK
 var activePlay = false; // created to gain better control of ball possession
 var goldenGoal = false;
@@ -1075,6 +1077,31 @@ function ballPathProgress(point, start, end) {
   return Math.max(0, Math.min(1, ((point.x - start.x) * dx + (point.y - start.y) * dy) / lengthSquared));
 }
 
+function recordLastTouchFromBallPath(start, end, maxDistance) {
+  if (start == null || end == null) {
+    return;
+  }
+
+  const players = room.getPlayerList().filter((player) => player.team != Team.SPECTATORS && player.position != null);
+  let touchPlayer = null;
+  let touchProgress = -1;
+
+  for (let i = 0; i < players.length; i++) {
+    const pathDistance = distanceToBallPath(players[i].position, start, end);
+    if (pathDistance <= maxDistance) {
+      const progress = ballPathProgress(players[i].position, start, end);
+      if (progress > touchProgress) {
+        touchPlayer = players[i];
+        touchProgress = progress;
+      }
+    }
+  }
+
+  if (touchPlayer != null) {
+    recordBallTouch(touchPlayer);
+  }
+}
+
 function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -1186,6 +1213,7 @@ function resetRealSoccerState() {
   game.outStatus = "";
   game.rsTimer = 0;
   lastBallPositionForTouch = null;
+  previousBallPositionForTouch = null;
 }
 
 function hasRequiredRealSoccerDiscs() {
@@ -2234,6 +2262,7 @@ room.onGameStart = function (byPlayer) {
   endGameVariable = false;
   lastPlayersTouched = [null, null];
   lastBallPositionForTouch = null;
+  previousBallPositionForTouch = null;
   Rposs = 0;
   Bposs = 0;
   GKList = [];
@@ -2647,6 +2676,7 @@ function realSoccerRef() {
       }
 
       room.setDiscProperties(0, { xgravity: 0, ygravity: 0 });
+      recordLastTouchFromBallPath(previousBallPositionForTouch, room.getBallPosition(), triggerDistance + 12);
 
       game.ballOutPositionX = Math.round(room.getBallPosition().x * 10) / 10;
       if (room.getBallPosition().y > 611.45) {
@@ -2860,6 +2890,7 @@ function handleBallTouch() {
     }
   }
 
+  previousBallPositionForTouch = lastBallPositionForTouch;
   lastBallPositionForTouch = { x: ballPosition.x, y: ballPosition.y };
 }
 
