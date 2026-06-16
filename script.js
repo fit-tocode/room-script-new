@@ -1,5 +1,5 @@
 const room = HBInit({
-    roomName:"✴️ [ɢᴀʟᴢᴍᴏᴅꜱ] Galz' Bunker",
+    roomName:"✴️ [ɢᴀʟᴢᴍᴏᴅꜱ] Galz Bunker",
     token: "thr1.AAAAAGoxMWjuKORzpJ--ow.JuHyP1mE-WQ",
     maxPlayers: 20,
     public: true,
