@@ -1,5 +1,5 @@
 /* ROOM */
-var roomName = " 💠    [ʀꜱɪ|ɪᴅ]  -  Scrim Room";
+var roomName = " 💠    [ʀꜱɪ|ɪᴅ]  -  Scrim Room";
 var roomPassword = "s6";
 const maxPlayers = 25; 
 const roomPublic = true; 
@@ -24,15 +24,12 @@ const room = HBInit({
 const scoreLimitPractice = 0;
 const timeLimitPractice = 7;
 
-// here you can place/edit assistance messages, always respecting the " , ". Example: "Nice pass," the player's name will always be after the comma.
-
 var registro = new Map();
 room.setTeamsLock(true);
 var message;
 var adminPassword = "rsi";
-// Cooldown period in milliseconds
-var cooldownPeriod = 3000; // 2 seconds
-var maxMessages = 2; // Maximum messages allowed in the cooldown period
+var cooldownPeriod = 3000;
+var maxMessages = 2;
 
 var isPaused = false;
 var pauseTimer;
@@ -42,11 +39,10 @@ const maxPauses = 3;
 
 let playerIds = new Set();
 let whitelist = new Set([
-  "oCk6n6FWrfoalDXXPijIKiPkZG9O1qZsoNmUnJ8ECbg", //mainoo 
-  "0Zu3VQi49L7EVFA2vhBhlvHSycK4E7CksBY2v4KpPAc" //m4
+  "oCk6n6FWrfoalDXXPijIKiPkZG9O1qZsoNmUnJ8ECbg",
+  "0Zu3VQi49L7EVFA2vhBhlvHSycK4E7CksBY2v4KpPAc"
 ]);
 
-// Store last message times and counts for players
 var lastMessageTime = {};
 var messageCounts = {};
 
@@ -60,26 +56,6 @@ let restoringStadium = false;
 var announcement30sSent = false; 
 var announcement20sSent = false; 
 var announcement10sSent = false;
-
-// let firstHalfScores = { red: 0, blue: 0 };
-// let secondHalfScores = { red: 0, blue: 0 };
-// function updateScores(team) {
-//   if (isFirstHalf) {
-//     // Update first half scores
-//     if (team === 1) {
-//       firstHalfScores.red += 1;
-//     } else if (team === 2) {
-//       firstHalfScores.blue += 1;
-//     }
-//   } else {
-//     // Update second half scores
-//     if (team === 1) {
-//       secondHalfScores.red += 1;
-//     } else if (team === 2) {
-//       secondHalfScores.blue += 1;
-//     }
-//   }
-// }
 
 /* STADIUM*/
 
@@ -622,64 +598,45 @@ var practiceMap =
 	},
 
 	"redSpawnPoints" : [
-		[ -222, -177
-		],
-		[ -228, 174
-		],
-		[ -684, -89
-		],
-		[ -692, 57
-		],
-		[ -1087, -5
-		],
-		[ -214, 622
-		],
-		[ -214, 622
-		],
-		[ -214, 622
-		]
-
+		[ -222, -177 ],
+		[ -228, 174 ],
+		[ -684, -89 ],
+		[ -692, 57 ],
+		[ -1087, -5 ],
+		[ -214, 622 ],
+		[ -214, 622 ],
+		[ -214, 622 ]
 	],
 
 	"blueSpawnPoints" : [
-		[ 218, -181
-		],
-		[ 225, 168
-		],
-		[ 719, 94
-		],
-		[ 719, -102
-		],
-		[ 1101, -17
-		],
-		[ 182, 629
-		],
-		[ 182, 629
-		],
-		[ 182, 629
-		]
-
+		[ 218, -181 ],
+		[ 225, 168 ],
+		[ 719, 94 ],
+		[ 719, -102 ],
+		[ 1101, -17 ],
+		[ 182, 629 ],
+		[ 182, 629 ],
+		[ 182, 629 ]
 	],
 
 	"joints" : [
- { "d0" : 0, "d1" : 4, "color" : "transparent", "length" : 0 },
- { "d0" : 0, "d1" : 5, "color" : "transparent", "length" : 7.106335201775948 },
- { "d0" : 0, "d1" : 8, "color" : "transparent", "length" : 6.96419413859206 },
- { "d0" : 0, "d1" : 9, "color" : "transparent", "length" : 7.5 },
- { "d0" : 0, "d1" : 6, "color" : "transparent", "length" : 6.96419413859206 },
- { "d0" : 0, "d1" : 7, "color" : "transparent", "length" : 7.106335201775948 },
- { "d0" : 5, "d1" : 7, "color" : "transparent", "length" : 9 },
- { "d0" : 5, "d1" : 8, "color" : "transparent", "length" : 8.246211251235321 },
- { "d0" : 8, "d1" : 9, "color" : "transparent", "length" : 8.200609733428363 },
- { "d0" : 6, "d1" : 9, "color" : "transparent", "length" : 8.200609733428363 },
- { "d0" : 6, "d1" : 7, "color" : "transparent", "length" : 8.246211251235321 },
- { "d0" : 7, "d1" : 8, "color" : "transparent", "length" : 13.601470508735444 },
- { "d0" : 7, "d1" : 9, "color" : "transparent", "length" : 13.756816492197604 },
- { "d0" : 5, "d1" : 9, "color" : "transparent", "length" : 13.756816492197604 },
- { "d0" : 5, "d1" : 6, "color" : "transparent", "length" : 13.601470508735444 },
- { "d0" : 6, "d1" : 8, "color" : "transparent", "length" : 13 },
-
-],
+		{ "d0" : 0, "d1" : 4, "color" : "transparent", "length" : 0 },
+		{ "d0" : 0, "d1" : 5, "color" : "transparent", "length" : 7.106335201775948 },
+		{ "d0" : 0, "d1" : 8, "color" : "transparent", "length" : 6.96419413859206 },
+		{ "d0" : 0, "d1" : 9, "color" : "transparent", "length" : 7.5 },
+		{ "d0" : 0, "d1" : 6, "color" : "transparent", "length" : 6.96419413859206 },
+		{ "d0" : 0, "d1" : 7, "color" : "transparent", "length" : 7.106335201775948 },
+		{ "d0" : 5, "d1" : 7, "color" : "transparent", "length" : 9 },
+		{ "d0" : 5, "d1" : 8, "color" : "transparent", "length" : 8.246211251235321 },
+		{ "d0" : 8, "d1" : 9, "color" : "transparent", "length" : 8.200609733428363 },
+		{ "d0" : 6, "d1" : 9, "color" : "transparent", "length" : 8.200609733428363 },
+		{ "d0" : 6, "d1" : 7, "color" : "transparent", "length" : 8.246211251235321 },
+		{ "d0" : 7, "d1" : 8, "color" : "transparent", "length" : 13.601470508735444 },
+		{ "d0" : 7, "d1" : 9, "color" : "transparent", "length" : 13.756816492197604 },
+		{ "d0" : 5, "d1" : 9, "color" : "transparent", "length" : 13.756816492197604 },
+		{ "d0" : 5, "d1" : 6, "color" : "transparent", "length" : 13.601470508735444 },
+		{ "d0" : 6, "d1" : 8, "color" : "transparent", "length" : 13 }
+	],
 
 	"cameraFollow" : "ball",
 
@@ -687,7 +644,6 @@ var practiceMap =
 
 	"canBeStored" : false
 }`;
-
 
 
 var penMap =
@@ -836,8 +792,6 @@ var penMap =
 	"playerPhysics" : {
 		"acceleration" : 0.123,
 		"kickStrength" : 7.5
-
-
 	},
 
 	"cameraFollow" : "player",
@@ -869,20 +823,15 @@ var penMap =
 		{ "d0" : 7, "d1" : 10, "strength" : "rigid", "color" : "transparent" },
 		{ "d0" : 15, "d1" : 16, "color" : "718C5A" },
 		{ "d0" : 15, "d1" : 17, "color" : "C7E6BD", "length" : [0,240 ] }
-
 	],
 
   "canBeStored" : false
 }`
 
-  /* MODE */
-
-var afkLimit = 1000; // limite de afk (150)
-var drawTimeLimit = 1; // minutos
-var maxTeamSize = 6; // máximo de jogadores num time, isso funciona para 1 (você pode querer adaptar as coisas para remover algumas estatísticas inúteis em 1v1, como assist ou cs), 2, 3 ou 4
+var afkLimit = 1000;
+var drawTimeLimit = 1;
+var maxTeamSize = 6;
 var slowMode = 1;
-
-/* TIM */
 
 const Team = {
   SPECTATORS: 0,
@@ -920,56 +869,34 @@ var teamS;
 var messageHistory = [0, 0, 0, 0, 0, 0];
 var messageCounter = 0;
 
-/* GAME */
-
-
-let link = ["https://www.haxball.com/play?c=_", "https://www.haxball.com", "haxball.com", ".com", "https://", "https:", "https://www."];
-
-var lastTeamTouched; // records who was the last to touch the ball
-var lastPlayersTouched; // allows you to receive good goal notifications (must be lastPlayersKicked, waiting for a next update to get better control of shots on target)
-var countAFK = false; // created to get better control of the activity, kicks if it's AFK
-var activePlay = false; // created to gain better control of ball possession
+var lastTeamTouched;
+var lastPlayersTouched;
+var countAFK = false;
+var activePlay = false;
 var goldenGoal = false;
-var SMSet = new Set(); // set created to get slow mode which is useful in ChooseMode
-var banList = []; // keep track of bans, so we can unban people if we want
-
-/* STATS */
+var SMSet = new Set();
+var banList = [];
 
 var game;
 var GKList = ["", ""];
 var Rposs = 0;
 var Bposs = 0;
-var point = [
-  {
-    x: 0,
-    y: 0,
-  },
-  {
-    x: 0,
-    y: 0,
-  },
-]; // created to obtain ball speed
+var point = [{ x: 0, y: 0 }, { x: 0, y: 0 }];
 var ballSpeed;
 var lastWinner = Team.SPECTATORS;
 var streak = 0;
-var allBlues = []; // this is to count the players who should be counted for statistics. This includes players who left after the game started.
+var allBlues = [];
 var allReds = [];
 
-/* BALANCE AND RECRUITMENT */
+var inChooseMode = false;
 
-var inChooseMode = false; // this variable allows you to distinguish the 2 phases of the game and choose which ones should be treated very differently
-
-/* ASSISTANT */
-
-var checkTimeVariable = false; // this is created so that chat doesn't get spammed when a game ends via timeLimit
+var checkTimeVariable = false;
 var announced = false;
-var statNumber = 0; // this allows the room to receive statistical information every X minutes
-var endGameVariable = false; // this variable with the one below helps distinguish cases where games are stopped because they are over from those where games are stopped due to player movements or team resets
+var statNumber = 0;
+var endGameVariable = false;
 var statInterval = 6;
 
 loadMap(practiceMap, scoreLimitPractice, timeLimitPractice);
-
-/* OBJECTS */
 
 function Goal(time, team, striker, assist) {
   this.time = time;
@@ -978,9 +905,6 @@ function Goal(time, team, striker, assist) {
   this.assist = assist;
 }
 
-// -------------------------------------------------
-// Classes
-// -------------------------------------------------
 class Game {
   constructor(date, scores, goals) {
     this.time = 0;
@@ -1012,28 +936,21 @@ class Game {
     this.pushedOut;
     this.redScore = 0;
     this.blueScore = 0;
+    // ✅ FIX: tambah lastKickerTeam untuk track siapa yang terakhir TENDANG (bukan defleksi)
+    this.lastKickerTeam = 0;
   }
 }
-
-
-/* FUNCTIONS */
 
 function centerText(string) {
   var space = parseInt((80 - string.length) * 0.8, 10);
-  if (space <= 0) {
-    return "";
-  }
+  if (space <= 0) return "";
   return " ".repeat(space) + string + " ".repeat(space);
 }
-
 
 function getCurrentTime() {
   const date = new Date();
   return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}.${date.getMilliseconds()}`;
 }
-
-/* CHASING */
-/* AUXILIARY FUNCTIONS */
 
 function pointDistance(p1, p2) {
   var d1 = p1.x - p2.x;
@@ -1045,10 +962,6 @@ function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-/* BUTTONS */
-
-/* GAME FUNCTIONS */
-
 function checkTime() {
   const scores = room.getScores();
   game.scores = scores;
@@ -1056,18 +969,13 @@ function checkTime() {
     if (scores.red != scores.blue) {
       if (checkTimeVariable == false) {
         checkTimeVariable = true;
-        setTimeout(() => {
-          checkTimeVariable = false;
-        }, 3000);
+        setTimeout(() => { checkTimeVariable = false; }, 3000);
         scores.red > scores.blue ? endGame(Team.RED) : endGame(Team.BLUE);
-        setTimeout(() => {
-          room.stopGame();
-        }, 2000);
+        setTimeout(() => { room.stopGame(); }, 2000);
       }
       return;
     }
     goldenGoal = true;
-    // room.sendAnnouncement("⚽ Gol de Gold!", null, 0xF1AF09);
     room.sendAnnouncement(centerText("EXTRA TIME"), null, 0xffff17, "bold");
     room.sendAnnouncement(centerText("Added +" + drawTimeLimit * 60 + " seconds!"), null, 0xffffff, "normal");
     room.sendAnnouncement(centerText("⚽ First goal wins! ⚽"), null, 0xffffff, "normal");
@@ -1076,25 +984,20 @@ function checkTime() {
     if (checkTimeVariable == false && announced == false) {
       checkTimeVariable = true;
       announced = true;
-      setTimeout(() => {
-        checkTimeVariable = false;
-      }, 10);
+      setTimeout(() => { checkTimeVariable = false; }, 10);
       room.sendAnnouncement(centerText("⌛ 15 seconds to draw!"), null, 0xffff17, "bold");
     }
   }
   if (scores.time > scores.timeLimit + drawTimeLimit * 60) {
     if (checkTimeVariable == false) {
       checkTimeVariable = true;
-      setTimeout(() => {
-        checkTimeVariable = false;
-      }, 10);
+      setTimeout(() => { checkTimeVariable = false; }, 10);
       endGame(Team.SPECTATORS);
       room.stopGame();
       goldenGoal = false;
     }
   }
 }
-
 
 function endGame(winner) {
   const scores = room.getScores();
@@ -1105,10 +1008,8 @@ function endGame(winner) {
   endGameVariable = true;
   if (winner == Team.RED) {
     streak++;
-    //room.sendAnnouncement(centerText("🏆 Red team won! | Win Streak(s):") + streak + " 🏆", null, 0xfdc43a);
   } else if (winner == Team.BLUE) {
     streak = 1;
-    //room.sendAnnouncement(centerText("🏆 Blue team won! | Win streak(s):") + streak + " 🏆", null, 0xfdc43a);
   } else {
     streak = 0;
     room.sendAnnouncement("💤 ʟɪᴍɪᴛ ʀᴇᴀᴄʜᴇᴅ");
@@ -1118,13 +1019,6 @@ function endGame(winner) {
     room.sendAnnouncement(centerText(" " + scores.red + " - " + scores.blue), null, 0xffffff, "normal");
     room.sendAnnouncement(centerText((Rposs * 100).toPrecision(3).toString() + "% | Ball possession | " + (Bposs * 100).toPrecision(3).toString() + "% "), null, 0xffffff, "normal");
   }
-  // scores.red == 0
-  //   ? scores.blue == 0
-  //     ? room.sendAnnouncement("🥅 " + GKList[0].name + " it's a man? no, it's a barrier! " + GKList[1].name + " saved all goals ", null, 0xfdc43a)
-  //     : room.sendAnnouncement("🥅 it's a man? no, it's a barrier! " + GKList[1].name + " saved all goals ", null, 0xfdc43a)
-  //   : scores.blue == 0
-  //   ? room.sendAnnouncement("🥅 it's a man? no, it's a barrier! " + GKList[0].name + " saved all goals ", null, 0xfdc43a)
-  //   : null;
   updateStats();
 }
 
@@ -1132,7 +1026,6 @@ function loadMap(map, scoreLim = scoreLimitPractice, timeLim = timeLimitPractice
   if (map != "") {
     room.setCustomStadium(map);
   } else {
-    //console.log("There was an error loading the stadium");
     room.setDefaultStadium("Classic");
   }
   room.setScoreLimit(scoreLim);
@@ -1151,6 +1044,7 @@ function resetRealSoccerState() {
   game.rsGoalKick = false;
   game.outStatus = "";
   game.rsTimer = 0;
+  game.lastKickerTeam = Team.SPECTATORS; // ✅ FIX: init lastKickerTeam
 }
 
 function hasRequiredRealSoccerDiscs() {
@@ -1168,7 +1062,6 @@ function stopGameIfRunning() {
 }
 
 function updateTeams() {
-  // updates the list of players and the list of all teams
   players = room.getPlayerList().filter((player) => player.id != 0 && !getAFK(player));
   TeamR = players.filter((p) => p.team === Team.RED);
   TeamB = players.filter((p) => p.team === Team.BLUE);
@@ -1176,7 +1069,6 @@ function updateTeams() {
 }
 
 function handleInactivity() {
-  // handles inactivity: players will be kicked after afkLimit
   if (countAFK && TeamR.length + TeamB.length > 1) {
     for (var i = 0; i < TeamR.length; i++) {
       setActivity(TeamR[i], getActivity(TeamR[i]) + 1);
@@ -1192,9 +1084,7 @@ function handleInactivity() {
     if (extendedP[i][eP.ACT] >= 60 * afkLimit) {
       extendedP[i][eP.ACT] = 0;
       if (room.getScores().time <= afkLimit - 0.5) {
-        setTimeout(() => {
-          !inChooseMode ? quickRestart() : room.stopGame();
-        }, 10);
+        setTimeout(() => { !inChooseMode ? quickRestart() : room.stopGame(); }, 10);
       }
       room.kickPlayer(extendedP[i][eP.ID], "ᴀꜰᴋ", false);
     }
@@ -1204,40 +1094,30 @@ function handleInactivity() {
 function getAuth(player) {
   return extendedP.filter((a) => a[0] == player.id) != null ? extendedP.filter((a) => a[0] == player.id)[0][eP.AUTH] : null;
 }
-
 function getAFK(player) {
   return extendedP.filter((a) => a[0] == player.id) != null ? extendedP.filter((a) => a[0] == player.id)[0][eP.AFK] : null;
 }
-
 function setAFK(player, value) {
   extendedP.filter((a) => a[0] == player.id).forEach((player) => (player[eP.AFK] = value));
 }
-
 function getActivity(player) {
   return extendedP.filter((a) => a[0] == player.id) != null ? extendedP.filter((a) => a[0] == player.id)[0][eP.ACT] : null;
 }
-
 function setActivity(player, value) {
   extendedP.filter((a) => a[0] == player.id).forEach((player) => (player[eP.ACT] = value));
 }
-
 function getGK(player) {
   return extendedP.filter((a) => a[0] == player.id) != null ? extendedP.filter((a) => a[0] == player.id)[0][eP.GK] : null;
 }
-
 function setGK(player, value) {
   extendedP.filter((a) => a[0] == player.id).forEach((player) => (player[eP.GK] = value));
 }
-
 function getMute(player) {
   return extendedP.filter((a) => a[0] == player.id) != null ? extendedP.filter((a) => a[0] == player.id)[0][eP.MUTE] : null;
 }
-
 function setMute(player, value) {
   extendedP.filter((a) => a[0] == player.id).forEach((player) => (player[eP.MUTE] = value));
 }
-
-/* STATISTICS FUNCTIONS */
 
 function getLastTouchOfTheBall() {
   const ballPosition = room.getBallPosition();
@@ -1258,7 +1138,6 @@ function getLastTouchOfTheBall() {
 }
 
 function getStats() {
-  // gives possession, ball speed and GK of each team
   if (activePlay) {
     updateTeams();
     lastTeamTouched == Team.RED ? Rposs++ : Bposs++;
@@ -1342,10 +1221,7 @@ function updateStats() {
 }
 
 function findGK() {
-  var tab = [
-    [-1, ""],
-    [-1, ""],
-  ];
+  var tab = [[-1, ""], [-1, ""]];
   for (var i = 0; i < extendedP.length; i++) {
     if (room.getPlayer(extendedP[i][eP.ID]) != null && room.getPlayer(extendedP[i][eP.ID]).team == Team.RED) {
       if (tab[0][0] < extendedP[i][eP.GK]) {
@@ -1362,21 +1238,19 @@ function findGK() {
   GKList = [tab[0][1], tab[1][1]];
 }
 
-/* PLAYER MOVEMENT */
-
 const specialAuths = [
-  "Gz6lv-5YsUCk-bJHBxyzbXtFAV2O3edJUev3DhEf_xA", //fox
-  "0Zu3VQi49L7EVFA2vhBhlvHSycK4E7CksBY2v4KpPAc", //m4
-  "LnEtoSdVonFZdGMYKDUVPAWb-SzD-PsUMJC2nDPHO5w", //roti
-  "EKGPaC2usPnvew9o0KH9P6J3nSmBOpKf3meC25VidQo", //stickmar
-  "4sNwsfwEjsR37sYEkXMatM8YkcjM3KaJ5uoC2WJ02rY" //bizkit
+  "Gz6lv-5YsUCk-bJHBxyzbXtFAV2O3edJUev3DhEf_xA",
+  "0Zu3VQi49L7EVFA2vhBhlvHSycK4E7CksBY2v4KpPAc",
+  "LnEtoSdVonFZdGMYKDUVPAWb-SzD-PsUMJC2nDPHO5w",
+  "EKGPaC2usPnvew9o0KH9P6J3nSmBOpKf3meC25VidQo",
+  "4sNwsfwEjsR37sYEkXMatM8YkcjM3KaJ5uoC2WJ02rY"
 ];
 const specialConns = [
-  "33362E37332E33352E313832", //fox
-  "3130332E37352E35352E3632", //m4
-  "3132392E3232372E33392E313139", //roti
-  "3134302E3231332E3132372E3337", //bizkit
-  "3138322E332E34352E323331" //stickmar
+  "33362E37332E33352E313832",
+  "3130332E37352E35352E3632",
+  "3132392E3232372E33392E313139",
+  "3134302E3231332E3132372E3337",
+  "3138322E332E34352E323331"
 ];
 
 room.onPlayerJoin = function (player) {
@@ -1391,8 +1265,7 @@ room.onPlayerJoin = function (player) {
   }
 
   extendedP.push([player.id, player.auth, player.conn, false, 0, 0, false]);
-  // updateRoleOnPlayerIn();
-  // room.sendAnnouncement("👋🏼 ᴡᴇʟᴄᴏᴍᴇ, " + player.name + "!", null, 0x5ee7ff, "bold");
+
   const text = [
     "╔═══════════════════════════════════════════════════╗",
     "║                                                      𝗥𝗦𝗜.𝗖𝗢𝗠𝗠𝗨𝗡𝗜𝗧𝗬                                                        ║",
@@ -1404,9 +1277,9 @@ room.onPlayerJoin = function (player) {
 
   setTimeout(() => {
     text.forEach(line => {
-        room.sendAnnouncement(line, player.id, 0x5CF49C, "normal");
+      room.sendAnnouncement(line, player.id, 0x5CF49C, "normal");
     });
-  }, 2700); 
+  }, 2700);
 
   setTimeout(() => {
     room.sendAnnouncement("use ( t ) before text if you want to sent team chat", player.id, 0xedc021, "normal");
@@ -1418,22 +1291,13 @@ room.onPlayerJoin = function (player) {
     }, 4000);
   }, 3200);
 
-  // if (localStorage.getItem(player.auth) != null) {
-  //   var playerRole = JSON.parse(localStorage.getItem(player.auth))[Ss.RL];
-  //   if (playerRole == "admin" || playerRole == "master") {
-  //     room.setPlayerAdmin(player.id, true);
-  //     room.sendAnnouncement("「ᴀᴅᴍɪɴ」" + player.name + " ᴄᴀᴍᴇ ɪɴᴛᴏ ᴛʜᴇ ʀᴏᴏᴍ!", null, 0xff7900, "normal");
-  //   }
-  // }
   if (localStorage.getItem(getAuth(player)) == null) {
     stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", player.name];
     localStorage.setItem(getAuth(player), JSON.stringify(stats));
   }
 };
 
-
 room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
-
   if (changedPlayer.id == 0) {
     room.setPlayerTeam(0, Team.SPECTATORS);
     return;
@@ -1447,21 +1311,11 @@ room.onPlayerTeamChange = function (changedPlayer, byPlayer) {
   if (changedPlayer.team == Team.SPECTATORS) {
     setActivity(changedPlayer, 0);
   }
-
-  // if (changedPlayer.team == 0) {
-  //   room.sendAnnouncement("🡪 ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴍᴏᴠᴇᴅ ᴛᴏ ꜱᴘᴇᴄᴛᴀᴛᴏʀ", changedPlayer.id, 0xffffff, "small", 1);
-  // } else if (changedPlayer.team == 1) {
-  //   room.sendAnnouncement("🡪 ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴍᴏᴠᴇᴅ ᴛᴏ ʀᴇᴅ ᴛᴇᴀᴍ", changedPlayer.id, 0xed6a5a, "small", 1);
-  // } else if (changedPlayer.team == 2) {
-  //   room.sendAnnouncement("🡪 ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴍᴏᴠᴇᴅ ᴛᴏ ʙʟᴜᴇ ᴛᴇᴀᴍ", changedPlayer.id, 0x33dddd, "small", 1);
-  // }
-
   if (changedPlayer.team == 1) {
     room.sendAnnouncement("🡪 ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴍᴏᴠᴇᴅ ᴛᴏ ʀᴇᴅ ᴛᴇᴀᴍ", changedPlayer.id, 0xed6a5a, "small", 1);
   } else if (changedPlayer.team == 2) {
     room.sendAnnouncement("🡪 ʏᴏᴜ ʜᴀᴠᴇ ʙᴇᴇɴ ᴍᴏᴠᴇᴅ ᴛᴏ ʙʟᴜᴇ ᴛᴇᴀᴍ", changedPlayer.id, 0x33dddd, "small", 1);
   }
-
 };
 
 room.onPlayerLeave = function (player) {
@@ -1473,7 +1327,7 @@ room.onPlayerKicked = function (kickedPlayer, reason, ban, byPlayer) {
   ban == true ? banList.push([kickedPlayer.name, kickedPlayer.id]) : null;
 };
 
-/* PLAYER ACTIVITY */
+var link = ["https://www.haxball.com/play?c=_", "https://www.haxball.com", "haxball.com", ".com", "https://", "https:", "https://www."];
 
 room.onPlayerChat = function (player, message) {
   var players = room.getPlayerList();
@@ -1481,97 +1335,74 @@ room.onPlayerChat = function (player, message) {
 
   if (message.startsWith("t ") || message.startsWith("T ")) {
     teamMsg = message.substring(2).trim();
-    var players;
+    var teamPlayers;
     var teamColor;
     var teamMsgPrefix;
     var showAdmins = false;
 
     if (player.team == 1) {
-        players = room.getPlayerList().filter(p => p.team == 1);
-        teamColor = 0xed6a5a;
-        teamMsgPrefix = "🔴[TEAM CHAT]";
-        showAdmins = false;
+      teamPlayers = room.getPlayerList().filter(p => p.team == 1);
+      teamColor = 0xed6a5a;
+      teamMsgPrefix = "🔴[TEAM CHAT]";
+      showAdmins = false;
     } else if (player.team == 2) {
-        players = room.getPlayerList().filter(p => p.team == 2);
-        teamColor = 0x5995ed;
-        teamMsgPrefix = "🔵[TEAM CHAT]";
-        showAdmins = false;
+      teamPlayers = room.getPlayerList().filter(p => p.team == 2);
+      teamColor = 0x5995ed;
+      teamMsgPrefix = "🔵[TEAM CHAT]";
+      showAdmins = false;
     } else if (player.team == 0) {
-        players = room.getPlayerList().filter(p => p.team == 0);
-        teamColor = 0xdee7fa;
-        teamMsgPrefix = "[SPECTATOR]";
+      teamPlayers = room.getPlayerList().filter(p => p.team == 0);
+      teamColor = 0xdee7fa;
+      teamMsgPrefix = "[SPECTATOR]";
     }
 
-    if (players) {
-        players.forEach(function (teamPlayer) {
-            room.sendAnnouncement(teamMsgPrefix + " " + player.name + ": " + teamMsg, teamPlayer.id, teamColor, "normal", 1);
-        });
-
-        // Send message to all admins if the player is in team 1 or 2
-        if (showAdmins) {
-            var admins = room.getPlayerList().filter(p => p.admin);
-            admins.forEach(function (admin) {
-                room.sendAnnouncement(teamMsgPrefix + " " + player.name + ": " + teamMsg, admin.id, teamColor, "normal", 1);
-            });
-        }
+    if (teamPlayers) {
+      teamPlayers.forEach(function (teamPlayer) {
+        room.sendAnnouncement(teamMsgPrefix + " " + player.name + ": " + teamMsg, teamPlayer.id, teamColor, "normal", 1);
+      });
     }
-    
     return false;
 
   } else if (message.startsWith("a ") || message.startsWith("A ")) {
-    handleGlobalChat(player, message);
-  }
-
-  function handleGlobalChat(player, message) {
     if (globalChatEnabled) {
       var globalMsg = message.substring(2).trim();
-      room.sendAnnouncement("[GLOBAL CHAT] " + player.name + ": " + globalMsg, null, 0xffffff);      
+      room.sendAnnouncement("[GLOBAL CHAT] " + player.name + ": " + globalMsg, null, 0xffffff);
     } else {
       room.sendAnnouncement("Global chat disabled.", player.id, 0xffffff);
     }
+    return false;
   }
 
-
-  /* RSI ANTI SPAM */
   var playerId = player.id;
   var currentTime = Date.now();
 
   if (lastMessageTime[playerId]) {
     var timeSinceLastMessage = currentTime - lastMessageTime[playerId];
-      
-        if (lastMessageTime[playerId]) {
-        var timeSinceLastMessage = currentTime - lastMessageTime[playerId];
-
-        if (timeSinceLastMessage > cooldownPeriod) {
-            messageCounts[playerId] = 0;
-        }
-        messageCounts[playerId] = (messageCounts[playerId] || 0) + 1;
-
-        if (messageCounts[playerId] > maxMessages) {
-          if(player.admin == true){} 
-          else {
-            room.sendAnnouncement("Spam Alert", playerId, 0x5DDB7E, "normal", 2);
-            return false; // Block the message
-          }
-        }
-    } else {r
-        messageCounts[playerId] = 1;
+    if (timeSinceLastMessage > cooldownPeriod) {
+      messageCounts[playerId] = 0;
     }
+    messageCounts[playerId] = (messageCounts[playerId] || 0) + 1;
+    if (messageCounts[playerId] > maxMessages) {
+      if (player.admin == true) {}
+      else {
+        room.sendAnnouncement("Spam Alert", playerId, 0x5DDB7E, "normal", 2);
+        return false;
+      }
+    }
+  } else {
+    messageCounts[playerId] = 1;
   }
-  // Update the last message time for the player
   lastMessageTime[playerId] = currentTime;
-
 
   if (message.startsWith("@@")) {
     message = message.substr(2).trim();
     if (message.indexOf(" ") !== -1) {
       let args = message.match(/^(\S+)\s(.*)/).slice(1);
-
       if (args.length > 1) {
         var pmMsg = args[1];
-        var players = room.getPlayerList();
+        var allPlayers = room.getPlayerList();
         var pmSent = false;
-        players.forEach(function (pmPlayer) {
+        allPlayers.forEach(function (pmPlayer) {
           if (pmPlayer.name === args[0] || pmPlayer.name === args[0].replace(/_/g, " ")) {
             whisper("[PM > " + pmPlayer.name + "] " + player.name + ": " + pmMsg, player.id, 0xff20ff, "normal", 1);
             whisper("[PM] " + player.name + ": " + pmMsg, pmPlayer.id, 0xff20ff, "normal", 1);
@@ -1586,44 +1417,23 @@ room.onPlayerChat = function (player, message) {
     }
   }
 
-
   if (message.startsWith("!kick #")) {
     if (player.admin) {
-      // Extract the player ID from the message, removing the "kick #" prefix
-      var playerId = message.substr(6);
-  
-      // Call the function to kick the player
-      var success = kickPlayerById(playerId);
-  
-      if (!success) {
+      var kickId = parseInt(message.substr(7));
+      var playerToKick = room.getPlayer(kickId);
+      if (playerToKick !== null) {
+        room.kickPlayer(playerToKick.id, "You have been kicked from the room");
+      } else {
         room.sendChat("⚠️ Player not found.");
       }
     }
     return false;
   }
-  
-  // Function to kick a player by ID
-  function kickPlayerById(playerId) {
-    if (player.admin) {
-      var playerToKick = room.getPlayer(playerId);
-  
-      if (playerToKick !== null) {
-        room.kickPlayer(playerToKick.id, "You have been kicked from the room");
-        return true; // Player successfully kicked
-      } else {
-        return false; // Player not found
-      }
-    } else {
-      return false; // Permission denied
-    }
-  }
 
   if (message.startsWith("k ") || message.startsWith("K ")) {
-    teamKom = message.substring(1).trim();
     if (player.admin) {
-      //room.sendAnnouncement("👀 [Komentator]: " + teamKom + "", null, 0x99ffff, "normal", 1);
+      var teamKom = message.substring(2).trim();
       room.sendAnnouncement("👀 [Komentator]: " + teamKom + "", null, 0xffffe0, "normal", 1);
-      return false;
     } else {
       whisper("⚠️ You don't have permission", player.id);
     }
@@ -1631,86 +1441,53 @@ room.onPlayerChat = function (player, message) {
   }
 
   if (message.startsWith("Y ") || message.startsWith("y ")) {
-    var remainingMessage = message.substring(2).trim();
     if (player.admin) {
-        var parts = remainingMessage.split(" ");
-        var targetPlayerName = parts[0];
-        var reason = parts.slice(1).join(" ");
-        room.sendAnnouncement(`[BOOKINGS] 🟨 Player: ${targetPlayerName} got yellow card for Reason: ${reason}`, null, 0xffffe0, "normal", 1);
+      var remainingMessage = message.substring(2).trim();
+      var parts = remainingMessage.split(" ");
+      var targetPlayerName = parts[0];
+      var reason = parts.slice(1).join(" ");
+      room.sendAnnouncement(`[BOOKINGS] 🟨 Player: ${targetPlayerName} got yellow card for Reason: ${reason}`, null, 0xffffe0, "normal", 1);
     } else {
-        room.sendChat("⚠️ You don't have permission", player.id);
+      room.sendChat("⚠️ You don't have permission", player.id);
     }
-    return false; // Prevent the message from being displayed in chat
+    return false;
   }
 
   if (message.startsWith("R ") || message.startsWith("r ")) {
-    var remainingMessage = message.substring(2).trim();
     if (player.admin) {
-        var parts = remainingMessage.split(" ");
-        var targetPlayerName = parts[0];
-        var reason = parts.slice(1).join(" ");
-        room.sendAnnouncement(`[BOOKINGS] 🟥 Player: ${targetPlayerName} got red card for Reason: ${reason}`, null, 0xffffe0, "normal", 1);
+      var remainingMessage = message.substring(2).trim();
+      var parts = remainingMessage.split(" ");
+      var targetPlayerName = parts[0];
+      var reason = parts.slice(1).join(" ");
+      room.sendAnnouncement(`[BOOKINGS] 🟥 Player: ${targetPlayerName} got red card for Reason: ${reason}`, null, 0xffffe0, "normal", 1);
     } else {
-        room.sendChat("⚠️ You don't have permission", player.id);
+      room.sendChat("⚠️ You don't have permission", player.id);
     }
-    return false; // Prevent the message from being displayed in chat
+    return false;
   }
-
-  // if (message.startsWith("!reqsub ") || message.startsWith("!reqsub ")) {
-  //   var remainingMessage = message.substring(6).trim();
-  //   var parts = remainingMessage.split(" ");
-  //   var playerout = parts[0];
-  //   var playerin = parts.slice(1).join(" ");
-    
-  //   var playerTeam = (player.team === 1) ? "Red team" : "Blue team";
-  //   var playerName = player.name;
-  //   var teamEmoji = (player.team === 1) ? "🟥" : "🟦";
-    
-  //   room.sendAnnouncement(`[SUBS REQUEST ${teamEmoji}] Captain ${playerName} request (Player out: ${playerout})  (Player in: ${playerin})`, null, 0xffffe0, "normal", 1);
-  
-  //   return false; // Prevent the message from being displayed in chat
-  // }
 
   if (message.startsWith("m ") || message.startsWith("M ")) {
     if (player.admin) {
-      teamTalk = message.substring(1).trim();
+      var teamTalk = message.substring(2).trim();
       announce("" + teamTalk + "");
-      return false;
     } else {
       whisper("⚠️ You don't have permission", player.id);
     }
     return false;
   }
 
-  function findPlayerById(id) {
-    var players = room.getPlayerList();
-    return players.find(player => player.id === id);
-  }
-
   messageHistory.push(player.id);
   messageCounter++;
-  if (messageCounter === 1545) {
-    if (
-      messageHistory[messageHistory.length - 1] === player.id &&
-      messageHistory[messageHistory.length - 2] === player.id &&
-      messageHistory[messageHistory.length - 3] === player.id &&
-      messageHistory[messageHistory.length - 4] === player.id
-    ) {
-      room.sendChat(":)", player.id);
-    }
-  }
-  // ban player if 6 messages are typed in a row (disabled)
-  msg = message;
-  message = message;
-  originalMessage = message;
+
+  var msg = message;
+  var originalMessage = message;
   message = message.split(/ +/);
   player.team != Team.SPECTATORS ? setActivity(player, 0) : null;
+
   if (["!help", "!command"].includes(message[0].toLowerCase())) {
     room.sendAnnouncement("[📄]ᴄᴏᴍᴍᴀɴᴅꜱ : !ᴅᴄ, !ᴀꜰᴋ, !fixstart, !start, ᴛ [ᴄʜᴀᴛ ᴛɪᴍ] !ɢᴀᴍᴇꜱ, !ᴀꜱꜱɪꜱᴛꜱ", player.id, 0x309d2b, "bold");
     player.admin ? room.sendAnnouncement("[📄] ᴀᴅᴍɪɴ : !ᴍᴜᴛᴇ <ᴅᴜʀᴀᴛɪᴏɴ = 3> #<ɪᴅ>, !ᴜɴᴍᴜᴛᴇ ᴀʟʟ/#<ɪᴅ>, !ᴄʟᴇᴀʀʙᴀɴꜱ <ɴᴜᴍʙᴇʀ = ᴀʟʟ>, !ꜱʟᴏᴡ <ᴅᴜʀᴀᴛɪᴏɴ>, !ᴇɴᴅꜱʟᴏᴡ", player.id, 0x309d2b, "bold") : null;
-  }
-
-else if (["!afk"].includes(message[0].toLowerCase())) {
+  } else if (["!afk"].includes(message[0].toLowerCase())) {
     if (players.length != 1 && player.team != Team.SPECTATORS) {
       if (player.team == Team.RED && streak > 0 && room.getScores() == null) {
         room.setPlayerTeam(player.id, Team.SPECTATORS);
@@ -1732,14 +1509,13 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
       }
     }, 30 * 60 * 1000);
     return false;
-  }else if (["!adm"].includes(message[0].toLowerCase())) {
+  } else if (["!adm"].includes(message[0].toLowerCase())) {
     if (message[1] == adminPassword) {
       room.setPlayerAdmin(player.id, true);
       var stats;
       localStorage.getItem(getAuth(player)) ? (stats = JSON.parse(localStorage.getItem(getAuth(player)))) : (stats = [0, 0, 0, 0, "0.00", 0, 0, 0, 0, "0.00", "player", player.name]);
       if (stats[Ss.RL] != "master") {
         stats[Ss.RL] = "master";
-        //room.sendAnnouncement(player.name + " ʟᴏɢɢᴇᴅ ɪɴ ᴀꜱ ᴀᴅᴍɪɴɪꜱᴛʀᴀᴛᴏʀ!", null, 0xff7900, 2);
         localStorage.setItem(getAuth(player), JSON.stringify(stats));
       }
     }
@@ -1758,8 +1534,7 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
       room.sendChat("[RSI] There is no one on the mutated list!", player.id);
       return false;
     }
-    cstm = cstm.substring(0, cstm.length - 2);
-    cstm += ".";
+    cstm = cstm.substring(0, cstm.length - 2) + ".";
     room.sendChat(cstm, player.id);
   } else if (["!mute"].includes(message[0].toLowerCase())) {
     if (player.admin) {
@@ -1771,37 +1546,21 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
         } else {
           timeOut = 3 * 60 * 1000;
         }
-        if (message[2].length > 1 && message[2][0] == "#") {
+        if (message[2] && message[2].length > 1 && message[2][0] == "#") {
           message[2] = message[2].substring(1, message[2].length);
           if (!Number.isNaN(Number.parseInt(message[2])) && room.getPlayer(Number.parseInt(message[2])) != null) {
-            if (room.getPlayer(Number.parseInt(message[2])).admin || getMute(room.getPlayer(Number.parseInt(message[2])))) {
-              return false;
-            }
-            setTimeout(
-              function (player) {
-                setMute(player, false);
-              },
-              timeOut,
-              room.getPlayer(Number.parseInt(message[2]))
-            );
+            if (room.getPlayer(Number.parseInt(message[2])).admin || getMute(room.getPlayer(Number.parseInt(message[2])))) return false;
+            setTimeout(function (p) { setMute(p, false); }, timeOut, room.getPlayer(Number.parseInt(message[2])));
             setMute(room.getPlayer(Number.parseInt(message[2])), true);
             room.sendChat(room.getPlayer(Number.parseInt(message[2])).name + " was muted for " + timeOut / 60000 + " minutes!");
           }
         }
       } else if (Number.isNaN(Number.parseInt(message[1]))) {
-        if (message[1].length > 1 && message[1][0] == "#") {
+        if (message[1] && message[1].length > 1 && message[1][0] == "#") {
           message[1] = message[1].substring(1, message[1].length);
           if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
-            if (room.getPlayer(Number.parseInt(message[1])).admin || getMute(room.getPlayer(Number.parseInt(message[1])))) {
-              return false;
-            }
-            setTimeout(
-              function (player) {
-                setMute(player, false);
-              },
-              3 * 60 * 1000,
-              room.getPlayer(Number.parseInt(message[1]))
-            );
+            if (room.getPlayer(Number.parseInt(message[1])).admin || getMute(room.getPlayer(Number.parseInt(message[1])))) return false;
+            setTimeout(function (p) { setMute(p, false); }, 3 * 60 * 1000, room.getPlayer(Number.parseInt(message[1])));
             setMute(room.getPlayer(Number.parseInt(message[1])), true);
             room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " was muted for 3 minutes!");
           }
@@ -1811,9 +1570,7 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
   } else if (["!unmute"].includes(message[0].toLowerCase())) {
     if (player.admin && message.length >= 2) {
       if (message[1] == "all") {
-        extendedP.forEach((ePlayer) => {
-          ePlayer[eP.MUTE] = false;
-        });
+        extendedP.forEach((ePlayer) => { ePlayer[eP.MUTE] = false; });
         room.sendChat("All were demutated");
       } else if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null && getMute(room.getPlayer(Number.parseInt(message[1])))) {
         setMute(room.getPlayer(Number.parseInt(message[1])), false);
@@ -1828,84 +1585,6 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
         }
       }
     }
-  } else if (["!mutenon"].includes(message[0].toLowerCase())) {
-    updateTeams();
-    var timeOut;
-    if (!Number.isNaN(Number.parseInt(message[1])) && message.length > 1) {
-      if (Number.parseInt(message[1]) > 0) {
-        timeOut = Number.parseInt(message[1]) * 60 * 1000;
-      } else {
-        timeOut = 3 * 60 * 1000;
-      }
-      if (message[2].length > 1 && message[2][0] == "#") {
-        message[2] = message[2].substring(1, message[2].length);
-        if (!Number.isNaN(Number.parseInt(message[2])) && room.getPlayer(Number.parseInt(message[2])) != null) {
-          if (room.getPlayer(Number.parseInt(message[2])).admin || getMute(room.getPlayer(Number.parseInt(message[2])))) {
-            return false;
-          }
-          setTimeout(
-            function (player) {
-              setMute(player, false);
-            },
-            timeOut,
-            room.getPlayer(Number.parseInt(message[2]))
-          );
-          setMute(room.getPlayer(Number.parseInt(message[2])), true);
-          room.sendChat(room.getPlayer(Number.parseInt(message[2])).name + " was muted for " + timeOut / 60000 + " minutes!");
-        }
-      }
-    } else if (Number.isNaN(Number.parseInt(message[1]))) {
-      if (message[1].length > 1 && message[1][0] == "#") {
-        message[1] = message[1].substring(1, message[1].length);
-        if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null) {
-          if (room.getPlayer(Number.parseInt(message[1])).admin || getMute(room.getPlayer(Number.parseInt(message[1])))) {
-            return false;
-          }
-          setTimeout(
-            function (player) {
-              setMute(player, false);
-            },
-            3 * 60 * 1000,
-            room.getPlayer(Number.parseInt(message[1]))
-          );
-          setMute(room.getPlayer(Number.parseInt(message[1])), true);
-          room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " was muted for 3 minutes!");
-        }
-      }
-    }
-} else if (["!unmutenon"].includes(message[0].toLowerCase())) {
-    if (message[1] == "all") {
-      extendedP.forEach((ePlayer) => {
-        ePlayer[eP.MUTE] = false;
-      });
-      room.sendChat("All were demutated");
-    } else if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null && getMute(room.getPlayer(Number.parseInt(message[1])))) {
-      setMute(room.getPlayer(Number.parseInt(message[1])), false);
-      room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " has been unmuted!");
-    } else if (Number.isNaN(Number.parseInt(message[1]))) {
-      if (message[1].length > 1 && message[1][0] == "#") {
-        message[1] = message[1].substring(1, message[1].length);
-        if (!Number.isNaN(Number.parseInt(message[1])) && room.getPlayer(Number.parseInt(message[1])) != null && getMute(room.getPlayer(Number.parseInt(message[1])))) {
-          setMute(room.getPlayer(Number.parseInt(message[1])), false);
-          room.sendChat(room.getPlayer(Number.parseInt(message[1])).name + " has been unmuted!");
-        }
-      }
-    }
-    if (banList.length == 0) {
-      room.sendChat("[RSI] There is no one on the banned list!", player.id);
-      return false;
-    }
-    var cstm = "[RSI] Banned list: ";
-    for (var i = 0; i < banList.length; i++) {
-      if (140 - cstm.length < (banList[i][0] + "[" + banList[i][1] + "], ").length) {
-        room.sendChat(cstm, player.id);
-        cstm = "... ";
-      }
-      cstm += banList[i][0] + "[" + banList[i][1] + "], ";
-    }
-    cstm = cstm.substring(0, cstm.length - 2);
-    cstm += ".";
-    room.sendChat(cstm, player.id);
   } else if (["!clearbans"].includes(message[0].toLowerCase())) {
     if (player.admin) {
       if (message.length == 1) {
@@ -1916,14 +1595,9 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
       if (message.length == 2) {
         if (!Number.isNaN(Number.parseInt(message[1]))) {
           if (Number.parseInt(message[1]) > 0) {
-            ID = Number.parseInt(message[1]);
+            var ID = Number.parseInt(message[1]);
             room.clearBan(ID);
-            if (banList.length != banList.filter((array) => array[1] != ID)) {
-              room.sendChat(banList.filter((array) => array[1] == ID)[0][0] + " has been banned from the host!");
-            }
-            setTimeout(() => {
-              banList = banList.filter((array) => array[1] != ID);
-            }, 20);
+            setTimeout(() => { banList = banList.filter((array) => array[1] != ID); }, 20);
           }
         }
       }
@@ -1935,37 +1609,33 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
       room.sendAnnouncement("Game already paused", player.id, 0xffffe0, "normal", 1);
       return false;
     }
-
     var team = player.team;
     var teamName = team === 1 ? "🟥 Red" : team === 2 ? "🟦 Blue" : "Spectator";
-
     if (team === 1 && redPauseCount >= maxPauses) {
-        room.sendAnnouncement("🟥 Red team has no more pause chances", player.id, 0xffffe0, "normal", 1);
-        return false;
+      room.sendAnnouncement("🟥 Red team has no more pause chances", player.id, 0xffffe0, "normal", 1);
+      return false;
     } else if (team === 2 && bluePauseCount >= maxPauses) {
-        room.sendAnnouncement("🟦 Blue team has no more pause chances", player.id, 0xffffe0, "normal", 1);
-        return false;
+      room.sendAnnouncement("🟦 Blue team has no more pause chances", player.id, 0xffffe0, "normal", 1);
+      return false;
     }
-
     room.pauseGame(true);
     isPaused = true;
     if (team === 1) redPauseCount++;
     if (team === 2) bluePauseCount++;
-
     room.sendAnnouncement(`${teamName} team captain ${player.name} paused the game for 20 sec`, null, 0xffffe0, "normal", 1);
-    pauseTimer = setTimeout(function() {
-        room.pauseGame(false);
-        isPaused = false;
-        room.sendAnnouncement("Game un-paused", null, 0xffffe0, "normal", 1);
+    pauseTimer = setTimeout(function () {
+      room.pauseGame(false);
+      isPaused = false;
+      room.sendAnnouncement("Game un-paused", null, 0xffffe0, "normal", 1);
     }, 20000);
   } else if (["!setpassword"].includes(message[0].toLowerCase())) {
     if (player.admin) {
-        room.setPassword(args[1]);
-        roomPassword = args[1];
-        announce("Password room diubah oleh: " + player.name);
-      } else {
-        whisper("Only Super Admins can change password", player.id);
-      }
+      room.setPassword(args[1]);
+      roomPassword = args[1];
+      announce("Password room diubah oleh: " + player.name);
+    } else {
+      whisper("Only Super Admins can change password", player.id);
+    }
   } else if (["!clearpassword"].includes(message[0].toLowerCase())) {
     if (player.admin) {
       room.setPassword(null);
@@ -1976,21 +1646,15 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
     }
   } else if (["!swap"].includes(message[0].toLowerCase())) {
     if (player.admin) {
-      if (args.length == 1) {
-        var players = room.getPlayerList().filter((player) => player.id != 0);
-        if (players.length == 0) return false;
-        players.forEach(function (player) {
-          if (player.team == 1) {
-            room.setPlayerTeam(player.id, 2);
-          }
-          if (player.team == 2) {
-            room.setPlayerTeam(player.id, 1);
-          }
-        });
-        announce("🔄 Tim Berhasil Ditukar");
-      }
+      var allPlayers = room.getPlayerList().filter((p) => p.id != 0);
+      if (allPlayers.length == 0) return false;
+      allPlayers.forEach(function (p) {
+        if (p.team == 1) room.setPlayerTeam(p.id, 2);
+        else if (p.team == 2) room.setPlayerTeam(p.id, 1);
+      });
+      announce("🔄 Tim Berhasil Ditukar");
     } else {
-      whisper("Only Super Admins can clear password", player.id);
+      whisper("Only Super Admins can swap teams", player.id);
     }
   } else if (["!start", "!fixstart"].includes(message[0].toLowerCase())) {
     if (room.getScores() == null) {
@@ -2002,91 +1666,53 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
     room.sendAnnouncement("List Map RSI : Real Soccer [!rsmap], Training [!premap / !training], Penalty [!penmap]", player.id, 0xffffff, "normal");
   } else if (["!rsmap"].includes(message[0].toLowerCase())) {
     if (player.admin) {
-        penKick = false;
-        console.log(`penKick = false`);
-        stopGameIfRunning();
-        loadMap(practiceMap, scoreLimitPractice, gameTime);
-        resetRealSoccerState();
-      } 
+      penKick = false;
+      stopGameIfRunning();
+      loadMap(practiceMap, scoreLimitPractice, gameTime);
+      resetRealSoccerState();
+    }
   } else if (["!premap", "!training", "!trainmap"].includes(message[0].toLowerCase())) {
     if (player.admin) {
-        penKick = false;
-        console.log(`penKick = false`);
-        stopGameIfRunning();
-        loadMap(practiceMap, scoreLimitPractice, 0);
-        resetRealSoccerState();
-      } 
+      penKick = false;
+      stopGameIfRunning();
+      loadMap(practiceMap, scoreLimitPractice, 0);
+      resetRealSoccerState();
+    }
   } else if (["!penmap"].includes(message[0].toLowerCase())) {
     if (player.admin) {
-        penKick = true;
-        console.log(`penKick = true`);
-        stopGameIfRunning();
+      penKick = true;
+      stopGameIfRunning();
+      loadMap(penMap, scoreLimitPractice, 0);
+      resetRealSoccerState();
+    } else {
+      if (room.getScores() == null) {
         loadMap(penMap, scoreLimitPractice, 0);
         resetRealSoccerState();
+        penKick = true;
       } else {
-        if (room.getScores() == null) {
-          loadMap(penMap, scoreLimitPractice, 0);
-          resetRealSoccerState();
-          penKick = true;
-          console.log(`penKick = true`);
-        } else {
-          whisper("ᴄᴀɴɴᴏᴛ ᴄʜᴀɴɢᴇ ᴍᴀᴘ ᴡʜɪʟᴇ ɢᴀᴍᴇ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ", player.id);
-        }
+        whisper("ᴄᴀɴɴᴏᴛ ᴄʜᴀɴɢᴇ ᴍᴀᴘ ᴡʜɪʟᴇ ɢᴀᴍᴇ ɪɴ ᴘʀᴏɢʀᴇꜱꜱ", player.id);
       }
+    }
   } else if (["!disableglobal"].includes(message[0].toLowerCase())) {
     if (player.admin) {
       globalChatEnabled = false;
       room.sendAnnouncement("Global chat disabled", null, 0xdee7fa);
-    } 
+    }
   } else if (["!enableglobal"].includes(message[0].toLowerCase())) {
     if (player.admin) {
       globalChatEnabled = true;
       room.sendAnnouncement("Global chat enabled", null, 0xdee7fa);
-    } 
+    }
   }
 
-  if (link.includes(message[0])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[1])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[2])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[3])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[4])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[5])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[6])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
-  }
-
-  if (link.includes(message[7])) {
-    room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
-    return false;
+  for (var li = 0; li < link.length; li++) {
+    if (originalMessage.includes(link[li])) {
+      room.sendAnnouncement("ʏᴏᴜ ᴄᴀɴɴᴏᴛ ꜱᴇɴᴅ ʟɪɴᴋꜱ ʜᴇʀᴇ, " + player.name, player.id, 0xff9966, "italic", 2);
+      return false;
+    }
   }
 
   if (message[0][0] == "!") {
-    // the command used in the chat does not appear
     return false;
   }
 
@@ -2094,30 +1720,24 @@ else if (["!afk"].includes(message[0].toLowerCase())) {
     room.sendChat("You are muted", player.id);
     return false;
   }
+
   if (slowMode > 0) {
     if (!player.admin) {
       if (!SMSet.has(player.id)) {
         SMSet.add(player.id);
-        setTimeout(
-          (number) => {
-            SMSet.delete(number);
-          },
-          slowMode * 1000,
-          player.id
-        );
+        setTimeout((number) => { SMSet.delete(number); }, slowMode * 1000, player.id);
       } else {
         return false;
       }
     }
   }
+
   if (localStorage.getItem(getAuth(player))) {
     stats = JSON.parse(localStorage.getItem(getAuth(player)));
     var announcement = "";
     var chatColor = "";
-
     announcement += player.admin ? "[🌐Admin] " : "[💠Player] ";
     chatColor = player.admin ? 0x99ffff : 0xEDEDED;
-
     announcement += player.name + ": " + originalMessage;
     room.sendAnnouncement(announcement, null, chatColor);
     return false;
@@ -2133,6 +1753,9 @@ room.onPlayerActivity = function (player) {
 
 room.onPlayerBallKick = function (player) {
   game.rsTouchTeam = player.team;
+  // ✅ FIX: Simpan siapa yang benar-benar MENENDANG bola (bukan defleksi fisik)
+  game.lastKickerTeam = player.team;
+
   if (lastPlayersTouched[0] == null || player.id != lastPlayersTouched[0].id) {
     !activePlay ? (activePlay = true) : null;
     lastTeamTouched = player.team;
@@ -2141,18 +1764,16 @@ room.onPlayerBallKick = function (player) {
   }
 
   if (game.rsReady == true) {
-    var players = room.getPlayerList().filter((player) => player.team != 0);
-    players.forEach(function (player) {
-      if (room.getPlayerDiscProperties(player.id).invMass.toFixed(1) != 0.3) {
-        room.setPlayerDiscProperties(player.id, { invMass: 0.3 });
+    var allPlayers = room.getPlayerList().filter((p) => p.team != 0);
+    allPlayers.forEach(function (p) {
+      if (room.getPlayerDiscProperties(p.id).invMass.toFixed(1) != 0.3) {
+        room.setPlayerDiscProperties(p.id, { invMass: 0.3 });
       }
     });
   }
 
   if (game.rsActive == false && game.rsReady == true && (game.rsCorner == true || game.rsGoalKick == true)) {
-    // make game active on kick from CK/GK
     game.boosterState = true;
-
     game.rsActive = true;
     game.rsReady = false;
     room.setDiscProperties(1, { x: 2000, y: 2000 });
@@ -2161,12 +1782,11 @@ room.onPlayerBallKick = function (player) {
     game.rsTimer = 1000000;
     game.warningCount++;
 
-    // set gravity for real soccer corners/goalkicks
     if (game.rsCorner == true) {
-      room.setDiscProperties(0, { xgravity: (room.getPlayerDiscProperties(player.id).xspeed / 16) * -1, ygravity: (room.getPlayerDiscProperties(player.id).yspeed / 16) * -1 });  //default 16
+      room.setDiscProperties(0, { xgravity: (room.getPlayerDiscProperties(player.id).xspeed / 16) * -1, ygravity: (room.getPlayerDiscProperties(player.id).yspeed / 16) * -1 });
     }
     if (game.rsGoalKick == true) {
-      room.setDiscProperties(0, { xgravity: 0, ygravity: (room.getPlayerDiscProperties(player.id).yspeed / 20) * -1 });  //default 20
+      room.setDiscProperties(0, { xgravity: 0, ygravity: (room.getPlayerDiscProperties(player.id).yspeed / 20) * -1 });
     }
 
     game.rsCorner = false;
@@ -2184,11 +1804,8 @@ room.onPlayerBallKick = function (player) {
   }
 };
 
-/* GAME MANAGEMENT */
-
 room.onGameStart = function (byPlayer) {
   isTurneyStarted = true;
-  console.log(`isTurneyStarted = true`);
   game = new Game(Date.now(), room.getScores(), []);
   countAFK = true;
   activePlay = false;
@@ -2201,44 +1818,33 @@ room.onGameStart = function (byPlayer) {
   allReds = [];
   allBlues = [];
   globalChatEnabled = false;
-  //whisper("Global chat disabled", null);
 
   room.sendAnnouncement(centerText("🥅 KICK OFF 🥅"), null, 0xffffff, "bold");
   room.sendAnnouncement(centerText("Game Duration: " + gameTime + " minutes / Half"), null, 0x2ef55d, "bold");
-  // room.sendAnnouncement(centerText("RSI League S4"), null, 0x5ee7ff);
 };
 
 room.onGameStop = function (byPlayer) {
   isTurneyStarted = false;
-  console.log(`isTurneyStarted = false`);
-  announcement30sSent = false; 
-  announcement20sSent = false; 
+  announcement30sSent = false;
+  announcement20sSent = false;
   announcement10sSent = false;
   redPauseCount = 0;
   bluePauseCount = 0;
   globalChatEnabled = true;
-  //whisper("Global chat enabled", null);
 };
 
-room.onGameUnpause = function (byPlayer) {
-};
+room.onGameUnpause = function (byPlayer) {};
 
-// Function to get a new random choice that is not the same as the previous one
 room.onTeamGoal = function (team) {
-  // updateScores(team); //update scores halftime + fulltime
   let goalTime = secondsToMinutes(Math.floor(room.getScores().time));
   game.rsActive = false;
-  
-  // Reset throw-in related variables immediately
+
   game.outStatus = "";
   game.rsActive = true;
   game.rsReady = false;
   game.rsTimer = 0;
-  
+
   teamgoaler = team;
-  let assistencia = "";
-  let goleador = "";
-  let goalMaker = lastPlayersTouched[0].id;
   activePlay = false;
   countAFK = false;
   const scores = room.getScores();
@@ -2251,23 +1857,14 @@ room.onTeamGoal = function (team) {
         `${goalTime} | ⚽ ɢᴏᴀʟ sᴄᴏʀᴇᴅ ʙʏ ${lastPlayersTouched[0].name} | ᴀssɪsᴛ ʙʏ - ${lastPlayersTouched[1].name} | 🟥 ${scores.red} - ${scores.blue} 🟦`,
         "──────────────────────────────────────────────────────"
       ];
-      text.forEach(line => {
-        room.sendAnnouncement(line, null, 0x11DEB3, "small");
-      });
+      text.forEach(line => { room.sendAnnouncement(line, null, 0x11DEB3, "small"); });
     } else {
       const text = [
         "──────────────────────────────────────────────────────",
         `${goalTime} | ⚽ ɢᴏᴀʟ sᴄᴏʀᴇᴅ ʙʏ ${lastPlayersTouched[0].name} | 🟥 ${scores.red} - ${scores.blue} 🟦`,
         "──────────────────────────────────────────────────────"
       ];
-      text.forEach(line => {
-        room.sendAnnouncement(line, null, 0x11DEB3, "small");
-      });
-    }
-
-    if (lastPlayersTouched[1] != null && lastPlayersTouched[1].team == team) {
-      let goalAssist = lastPlayersTouched[1].id;
-      assistencia = lastPlayersTouched[1];
+      text.forEach(line => { room.sendAnnouncement(line, null, 0x11DEB3, "small"); });
     }
   } else {
     const text = [
@@ -2275,31 +1872,18 @@ room.onTeamGoal = function (team) {
       `${goalTime} | ☠️ ᴏᴡɴ ɢᴏᴀʟ sᴄᴏʀᴇᴅ ʙʏ ${lastPlayersTouched[0].name} | 🟥 ${scores.red} - ${scores.blue} 🟦`,
       "──────────────────────────────────────────────────────"
     ];
-    text.forEach(line => {
-      room.sendAnnouncement(line, null, 0xFB6B6B, "small");
-    });
+    text.forEach(line => { room.sendAnnouncement(line, null, 0xFB6B6B, "small"); });
     game.goals.push(new Goal(scores.time, team, null, null));
   }
 
-  // Set a 2-second delay before resetting the ball position to center
   setTimeout(() => {
-    room.setDiscProperties(0, {
-      x: 0,
-      y: 0,
-      xspeed: 0,
-      yspeed: 0,
-      xgravity: 0,
-      ygravity: 0,
-      color: "0xffffff"
-    });
+    room.setDiscProperties(0, { x: 0, y: 0, xspeed: 0, yspeed: 0, xgravity: 0, ygravity: 0, color: "0xffffff" });
   }, 2000);
 
   if (scores.scoreLimit != 0 && (scores.red == scores.scoreLimit || (scores.blue == scores.scoreLimit && scores.blue > 0) || goldenGoal == true)) {
     endGame(team);
     goldenGoal = false;
-    setTimeout(() => {
-      room.stopGame();
-    }, 1000);
+    setTimeout(() => { room.stopGame(); }, 1000);
   }
 };
 
@@ -2313,8 +1897,6 @@ room.onPositionsReset = function () {
   }
 };
 
-/* SEVERAL */
-
 room.onRoomLink = function (url) {};
 
 room.onPlayerAdminChange = function (changedPlayer, byPlayer) {
@@ -2322,24 +1904,13 @@ room.onPlayerAdminChange = function (changedPlayer, byPlayer) {
     room.sendChat(changedPlayer.name + " was unmuted.");
     setMute(changedPlayer, false);
   }
-  // if (byPlayer.id != 0 && localStorage.getItem(getAuth(byPlayer)) && JSON.parse(localStorage.getItem(getAuth(byPlayer)))[Ss.RL] == "admin") {
-  //   room.sendChat("ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴀᴘᴘᴏɪɴᴛ ᴀ ᴘʟᴀʏᴇʀ ᴀꜱ ᴀɴ ᴀᴅᴍɪɴɪꜱᴛʀᴀᴛᴏʀ!", byPlayer.id);
-  //   room.setPlayerAdmin(changedPlayer.id, false);
-  // }
 };
 
 room.onStadiumChange = function (newStadiumName, byPlayer) {
-  if (restoringStadium || byPlayer == null) {
-    return;
-  }
-
+  if (restoringStadium || byPlayer == null) return;
   restoringStadium = true;
   const scores = room.getScores();
-
-  if (scores != null) {
-    room.stopGame();
-  }
-
+  if (scores != null) room.stopGame();
   loadMap(practiceMap, scoreLimitPractice, timeLimitPractice);
   resetRealSoccerState();
   penKick = false;
@@ -2348,22 +1919,18 @@ room.onStadiumChange = function (newStadiumName, byPlayer) {
 };
 
 room.onGameTick = function () {
-  if (game == null || room.getScores() == null || !hasRequiredRealSoccerDiscs()) {
-    return;
-  }
+  if (game == null || room.getScores() == null || !hasRequiredRealSoccerDiscs()) return;
 
   updateGameStatus();
   if (!penKick) {
     handleBallTouch();
     realSoccerRef();
   }
-  // if (!isTurneyStarted) {
-  //   checkTime();
-  // }
 
   getLastTouchOfTheBall();
   getStats();
   handleInactivity();
+
   if (isTurneyStarted) {
     const gameTimeRemaining = game.time;
     if (gameTimeRemaining === 7 * 60) {
@@ -2381,16 +1948,15 @@ room.onGameTick = function () {
   }
   if (!isFirstHalf) {
     var time = room.getScores().time;
-    
     if (time >= 6 * 60 + 30 && !announcement30sSent) {
-        announce(`Full Time in 30 seconds ⏳`);
-        announcement30sSent = true;
+      announce(`Full Time in 30 seconds ⏳`);
+      announcement30sSent = true;
     } else if (time >= 6 * 60 + 40 && !announcement20sSent) {
-        announce(`Full Time in 20 seconds ⏳`);
-        announcement20sSent = true;
+      announce(`Full Time in 20 seconds ⏳`);
+      announcement20sSent = true;
     } else if (time >= 6 * 60 + 50 && !announcement10sSent) {
-        announce(`Full Time in 10 seconds ⏳`);
-        announcement10sSent = true;
+      announce(`Full Time in 10 seconds ⏳`);
+      announcement10sSent = true;
     }
   }
 };
@@ -2400,15 +1966,11 @@ function stopFullTime() {
   game.scores = scores;
   Rposs = Rposs / (Rposs + Bposs);
   Bposs = 1 - Rposs;
-
   room.stopGame(true);
-
-  // Display full-time announcement
   room.sendAnnouncement(centerText("🏆 FULL TIME 🏆"), null, 0xffffff, "bold");
   room.sendAnnouncement(centerText(" " + scores.red + " - " + scores.blue), null, 0xffffff, "normal");
   room.sendAnnouncement(centerText((Rposs * 100).toPrecision(3).toString() + "% | Ball possession | " + (Bposs * 100).toPrecision(3).toString() + "% "), null, 0xffffff, "normal");
   isFirstHalf = true;
-  console.log(`isFirstHalf = true`);
 }
 
 function pauseAndResumeGame() {
@@ -2419,20 +1981,17 @@ function pauseAndResumeGame() {
   room.stopGame(true);
 
   setTimeout(() => {
-  room.sendAnnouncement(centerText("🏆 HALF TIME (1 MIN) 🏆"), null, 0xffffff, "bold");
-  room.sendAnnouncement(centerText(" " + scores.red + " - " + scores.blue), null, 0xffffff, "normal");
-  room.sendAnnouncement(centerText((Rposs * 100).toPrecision(3).toString() + "% | Ball Possession | " + (Bposs * 100).toPrecision(3).toString() + "% "), null, 0xffffff, "normal");
+    room.sendAnnouncement(centerText("🏆 HALF TIME (1 MIN) 🏆"), null, 0xffffff, "bold");
+    room.sendAnnouncement(centerText(" " + scores.red + " - " + scores.blue), null, 0xffffff, "normal");
+    room.sendAnnouncement(centerText((Rposs * 100).toPrecision(3).toString() + "% | Ball Possession | " + (Bposs * 100).toPrecision(3).toString() + "% "), null, 0xffffff, "normal");
   }, 700);
 
-  setTimeout(() => {
-    swapTeamsAndAnnounce();
-  }, 1800);
-  
+  setTimeout(() => { swapTeamsAndAnnounce(); }, 1800);
+
   isTurneyStarted = false;
-  console.log(`isTurneyStarted = false`);
 
   setTimeout(() => {
-    let timeLeft = 10; // Time left before resuming in seconds
+    let timeLeft = 10;
     let timerId = setInterval(() => {
       if (timeLeft > 0) {
         announce(`Kick-off in ${timeLeft} seconds ⏳`);
@@ -2443,43 +2002,34 @@ function pauseAndResumeGame() {
         announce("⚽ KICK OFF - SECOND HALF ⚽");
         setTimeout(() => {
           isTurneyStarted = false;
-          console.log(`isTurneyStarted = false`);
           isFirstHalf = false;
-          console.log(`isFirstHalf = false`);
         }, 8000);
       }
-    }, 1000); // Repeat every second
-  }, 50 * 1000); // 50 * 1000 seconds after initial pause 
+    }, 1000);
+  }, 50 * 1000);
 }
 
 function countdownToHalfTime() {
-  let timeLeft = 10; // Countdown time in seconds
-
+  let timeLeft = 10;
   for (let i = 0; i <= timeLeft; i++) {
     countdownTimeouts.push(setTimeout(() => {
       if (i < timeLeft) {
         announce(`Half Time in ${timeLeft - i} seconds ⏳`);
       } else {
-        // Clear all timeouts to reset the state
         countdownTimeouts.forEach(timeout => clearTimeout(timeout));
         countdownTimeouts = [];
       }
-    }, i * 1000)); // Announce every second
+    }, i * 1000));
   }
 }
 
 function swapTeamsAndAnnounce() {
-  var players = room.getPlayerList().filter((player) => player.id != 0);
-  if (players.length == 0) return false;
-  
-  players.forEach(function (player) {
-    if (player.team == 1) {
-      room.setPlayerTeam(player.id, 2);
-    } else if (player.team == 2) {
-      room.setPlayerTeam(player.id, 1);
-    }
+  var allPlayers = room.getPlayerList().filter((p) => p.id != 0);
+  if (allPlayers.length == 0) return false;
+  allPlayers.forEach(function (p) {
+    if (p.team == 1) room.setPlayerTeam(p.id, 2);
+    else if (p.team == 2) room.setPlayerTeam(p.id, 1);
   });
-  
   announce("🔄 Teams Swapped");
 }
 
@@ -2487,18 +2037,8 @@ function realSoccerRef() {
   blockThrowIn();
   blockGoalKick();
   removeBlock();
-  // if (game.time == gameTime * 60 && game.extraTimeAnnounced == false) {
-  //    extraTime();
-  //    game.extraTimeAnnounced = true;
-  // }
-
-  // if (game.time == game.extraTimeEnd && game.lastPlayAnnounced == false) {
-  //   announce("Peluang Terakhir", null, null, null, 1);
-  //   game.lastPlayAnnounced = true;
-  // }
 
   if (game.rsCorner == true || game.rsGoalKick == true) {
-    //add extra time
     game.extraTimeCount++;
   }
 
@@ -2532,14 +2072,11 @@ function realSoccerRef() {
   }
 
   if (game.rsActive == false && game.rsReady == true) {
-    //expire barrier time
     if (game.outStatus == "redThrow") {
       if (game.rsTimer == throwTimeOut - 120) {
-        // warning indicator
         ballWarning("0xff3f34", ++game.warningCount);
       }
       if (game.rsTimer == throwTimeOut && game.bringThrowBack == false) {
-        // switch to blue throw
         game.outStatus = "blueThrow";
         game.rsTimer = 0;
         room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
@@ -2549,11 +2086,9 @@ function realSoccerRef() {
       }
     } else if (game.outStatus == "blueThrow") {
       if (game.rsTimer == throwTimeOut - 120) {
-        // warning indicator
         ballWarning("0x0fbcf9", ++game.warningCount);
       }
       if (game.rsTimer == throwTimeOut && game.bringThrowBack == false) {
-        // switch to red throw
         game.outStatus = "redThrow";
         game.rsTimer = 0;
         room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
@@ -2563,13 +2098,8 @@ function realSoccerRef() {
       }
     } else if (game.outStatus == "blueGK" || game.outStatus == "redGK") {
       if (game.rsTimer == gkTimeOut - 120) {
-        // warning indicator
-        if (game.outStatus == "blueGK") {
-          ballWarning("0x0fbcf9", ++game.warningCount);
-        }
-        if (game.outStatus == "redGK") {
-          ballWarning("0xff3f34", ++game.warningCount);
-        }
+        if (game.outStatus == "blueGK") ballWarning("0x0fbcf9", ++game.warningCount);
+        if (game.outStatus == "redGK") ballWarning("0xff3f34", ++game.warningCount);
       }
       if (game.rsTimer == gkTimeOut) {
         game.outStatus = "";
@@ -2578,12 +2108,8 @@ function realSoccerRef() {
       }
     } else if (game.outStatus == "blueCK" || game.outStatus == "redCK") {
       if (game.rsTimer == ckTimeOut - 120) {
-        if (game.outStatus == "blueCK") {
-          ballWarning("0x0fbcf9", ++game.warningCount);
-        }
-        if (game.outStatus == "redCK") {
-          ballWarning("0xff3f34", ++game.warningCount);
-        }
+        if (game.outStatus == "blueCK") ballWarning("0x0fbcf9", ++game.warningCount);
+        if (game.outStatus == "redCK") ballWarning("0xff3f34", ++game.warningCount);
       }
       if (game.rsTimer == ckTimeOut) {
         game.outStatus = "";
@@ -2596,15 +2122,17 @@ function realSoccerRef() {
   }
 
   if (game.rsActive == true) {
+    // ========================================================
+    // BOLA KELUAR ATAS/BAWAH (THROW-IN)
+    // ========================================================
     if (room.getBallPosition().y > 611.45 || room.getBallPosition().y < -611.45) {
       game.rsActive = false;
+
       if (game.lastPlayAnnounced == true) {
         room.stopGame(true);
         game.lastPlayAnnounced = false;
         announce("⚽ FULL TIME ⚽");
-        announce("⚽ FULL TIME ⚽");
         room.setTimeLimit(gameTime);
-        // whisper("ʀᴇᴘʟᴀʏ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴛ ᴛᴏ ᴅɪꜱᴄᴏʀᴅ!", null);
       }
 
       room.setDiscProperties(0, { xgravity: 0, ygravity: 0 });
@@ -2618,29 +2146,19 @@ function realSoccerRef() {
         game.ballOutPositionY = -400485;
         game.throwInPosY = -610;
       }
-      if (room.getBallPosition().x > 1130) {
-        game.ballOutPositionX = 1130;
-      }
-      if (room.getBallPosition().x < -1130) {
-        game.ballOutPositionX = -1130;
-      }
+      if (room.getBallPosition().x > 1130) game.ballOutPositionX = 1130;
+      if (room.getBallPosition().x < -1130) game.ballOutPositionX = -1130;
 
-      const throwLastTouchTeam = lastPlayersTouched[0] != null ? lastPlayersTouched[0].team : game.rsTouchTeam;
+      // ✅ FIX: Gunakan lastKickerTeam untuk menentukan throw-in
+      // Tim yang TERAKHIR MENENDANG dapat lawan yang pegang throw-in
+      // Misal: Merah tendang (lastKickerTeam=1) → Biru defleksi → bola out
+      // lastKickerTeam = 1 (merah) → throw-in untuk MERAH (karena biru yang terakhir sentuh setelah defleksi)
+      // Logika: jika lastKickerTeam == 1 (merah tendang), beri throw ke merah (outStatus = "redThrow")
+      //         jika lastKickerTeam == 2 (biru tendang), beri throw ke biru (outStatus = "blueThrow")
+      const throwLastTouchTeam = game.lastKickerTeam !== Team.SPECTATORS ? game.lastKickerTeam : (lastPlayersTouched[0] != null ? lastPlayersTouched[0].team : game.rsTouchTeam);
 
-      if (throwLastTouchTeam == 1) {
-        room.setDiscProperties(3, { x: game.ballOutPositionX, y: game.throwInPosY, radius: 18 });
-        sleep(30).then(() => {
-          game.outStatus = "blueThrow";
-          game.throwinKicked = false;
-          game.rsTimer = 0;
-          game.rsReady = true;
-          room.setDiscProperties(0, { xspeed: 0, yspeed: 0, x: game.ballOutPositionX, y: game.throwInPosY, xgravity: 0, ygravity: 0 });
-          room.setDiscProperties(0, { color: "0x0fbcf9" });
-        });
-        sleep(1000).then(() => { // Total delay tetap terjaga (30 + 30)
-          room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
-        });
-      } else {
+      if (throwLastTouchTeam == Team.BLUE) {
+        // Biru yang terakhir tendang → throw-in untuk MERAH
         room.setDiscProperties(3, { x: game.ballOutPositionX, y: game.throwInPosY, radius: 18 });
         sleep(30).then(() => {
           game.outStatus = "redThrow";
@@ -2653,31 +2171,51 @@ function realSoccerRef() {
         sleep(1000).then(() => {
           room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
         });
+      } else {
+        // Merah yang terakhir tendang → throw-in untuk BIRU
+        room.setDiscProperties(3, { x: game.ballOutPositionX, y: game.throwInPosY, radius: 18 });
+        sleep(30).then(() => {
+          game.outStatus = "blueThrow";
+          game.throwinKicked = false;
+          game.rsTimer = 0;
+          game.rsReady = true;
+          room.setDiscProperties(0, { xspeed: 0, yspeed: 0, x: game.ballOutPositionX, y: game.throwInPosY, xgravity: 0, ygravity: 0 });
+          room.setDiscProperties(0, { color: "0x0fbcf9" });
+        });
+        sleep(1000).then(() => {
+          room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
+        });
       }
-    }      
+    }
 
+    // ========================================================
+    // BOLA KELUAR KANAN (SISI GOAL BIRU)
+    // ========================================================
     if (room.getBallPosition().x > 1161.45 && (room.getBallPosition().y > 124 || room.getBallPosition().y < -124)) {
       game.rsActive = false;
+
       if (game.lastPlayAnnounced == true) {
         room.stopGame(true);
         game.lastPlayAnnounced = false;
         announce("⚽ FULL TIME ⚽");
-        announce("⚽ FULL TIME ⚽");
         room.setTimeLimit(gameTime);
-        // whisper("ʀᴇᴘʟᴀʏ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴛ ᴛᴏ ᴅɪꜱᴄᴏʀᴅ!", null);
       }
+
       room.setDiscProperties(0, { xgravity: 0, ygravity: 0 });
-      room.getPlayerList().forEach(function (player) {
-        room.setPlayerDiscProperties(player.id, { invMass: 100000 });
+      room.getPlayerList().forEach(function (p) {
+        room.setPlayerDiscProperties(p.id, { invMass: 100000 });
       });
 
-      if (game.rsTouchTeam == 1) {
+      // ✅ FIX: Gunakan lastKickerTeam
+      const lastKicker = game.lastKickerTeam !== Team.SPECTATORS ? game.lastKickerTeam : game.rsTouchTeam;
+
+      if (lastKicker == Team.RED) {
+        // Merah tendang, bola out di sisi biru → goal kick biru
         room.setDiscProperties(3, { x: 1060, y: 0, radius: 18 });
         sleep(100).then(() => {
           game.outStatus = "blueGK";
           game.rsTimer = 0;
           game.rsReady = true;
-          //room.sendAnnouncement("👀 [ᴄᴏᴍᴍᴇɴᴛᴀᴛᴏʀ]: Goal Kick for the blue team 🥅", null, 0xffffe0, "normal");
           game.rsGoalKick = true;
           game.rsSwingTimer = 0;
           game.boosterCount = 0;
@@ -2688,7 +2226,7 @@ function realSoccerRef() {
           room.setDiscProperties(3, { x: 0, y: 2000, radius: 0 });
         });
       } else {
-        //room.sendAnnouncement("👀 [ᴄᴏᴍᴍᴇɴᴛᴀᴛᴏʀ]: Corner Kick for the red team 🚩", null, 0xffffe0, "normal");
+        // Biru tendang, bola out di sisi biru → corner kick merah
         game.rsSwingTimer = 0;
         if (room.getBallPosition().y < -124) {
           room.setDiscProperties(3, { x: 1140, y: -590, radius: 18 });
@@ -2720,23 +2258,30 @@ function realSoccerRef() {
         }
       }
     }
+
+    // ========================================================
+    // BOLA KELUAR KIRI (SISI GOAL MERAH)
+    // ========================================================
     if (room.getBallPosition().x < -1161.45 && (room.getBallPosition().y > 124 || room.getBallPosition().y < -124)) {
       game.rsActive = false;
+
       if (game.lastPlayAnnounced == true) {
         room.stopGame(true);
         game.lastPlayAnnounced = false;
         announce("⚽ FULL TIME ⚽");
-        announce("⚽ FULL TIME ⚽");
         room.setTimeLimit(gameTime);
-        // whisper("ʀᴇᴘʟᴀʏ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴛ ᴛᴏ ᴅɪꜱᴄᴏʀᴅ!", null);
       }
+
       room.setDiscProperties(0, { xgravity: 0, ygravity: 0 });
-      room.getPlayerList().forEach(function (player) {
-        room.setPlayerDiscProperties(player.id, { invMass: 100000 });
+      room.getPlayerList().forEach(function (p) {
+        room.setPlayerDiscProperties(p.id, { invMass: 100000 });
       });
 
-      if (game.rsTouchTeam == 1) {
-        //room.sendAnnouncement("👀 [ᴄᴏᴍᴍᴇɴᴛᴀᴛᴏʀ]: Corner Kick for the blue team🚩", null, 0xffffe0, "normal");
+      // ✅ FIX: Gunakan lastKickerTeam
+      const lastKicker2 = game.lastKickerTeam !== Team.SPECTATORS ? game.lastKickerTeam : game.rsTouchTeam;
+
+      if (lastKicker2 == Team.BLUE) {
+        // Biru tendang, bola out di sisi merah → corner kick biru
         game.rsSwingTimer = 0;
         if (room.getBallPosition().y < -124) {
           room.setDiscProperties(3, { x: -1140, y: -590, radius: 18 });
@@ -2767,12 +2312,12 @@ function realSoccerRef() {
           });
         }
       } else {
+        // Merah tendang, bola out di sisi merah → goal kick merah
         room.setDiscProperties(3, { x: -1060, y: 0, radius: 18 });
         sleep(100).then(() => {
           game.outStatus = "redGK";
           game.rsTimer = 0;
           game.rsReady = true;
-          //room.sendAnnouncement("👀 [ᴄᴏᴍᴍᴇɴᴛᴀᴛᴏʀ]: Goal Kick for the red team 🥅", null, 0xffffe0, "normal");
           game.rsGoalKick = true;
           game.rsSwingTimer = 0;
           game.boosterCount = 0;
@@ -2788,21 +2333,19 @@ function realSoccerRef() {
 }
 
 function handleBallTouch() {
-  var players = room.getPlayerList();
+  var allPlayers = room.getPlayerList();
   var ballPosition = room.getBallPosition();
-  var ballRadius = game.ballRadius;
-  var playerRadius = 15;
-  var triggerDistance = ballRadius + playerRadius + 0.01;
+  var ballRadiusLocal = game.ballRadius;
+  var playerRadiusLocal = 15;
+  var triggerDistanceLocal = ballRadiusLocal + playerRadiusLocal + 0.01;
 
-  for (var i = 0; i < players.length; i++) {
-    // Iterate over all the players
-    var player = players[i];
-    if (player.position == null) continue;
-    var distanceToBall = pointDistance(player.position, ballPosition);
-    if (distanceToBall < triggerDistance) {
-      game.rsTouchTeam = player.team;
+  for (var i = 0; i < allPlayers.length; i++) {
+    var p = allPlayers[i];
+    if (p.position == null) continue;
+    var distanceToBall = pointDistance(p.position, ballPosition);
+    if (distanceToBall < triggerDistanceLocal) {
+      game.rsTouchTeam = p.team;
       game.throwinKicked = false;
-
 
       if (game.rsCorner == false && room.getDiscProperties(0).xgravity != 0) {
         room.setDiscProperties(0, { xgravity: 0, ygravity: 0 });
@@ -2818,40 +2361,22 @@ function updateGameStatus() {
 }
 
 function announce(msg, targetId, color, style, sound) {
-  if (color == null) {
-    color = 0xfffd82;
-  }
-  if (style == null) {
-    style = "bold";
-  }
-  if (sound == null) {
-    sound = 0;
-  }
+  if (color == null) color = 0xfffd82;
+  if (style == null) style = "bold";
+  if (sound == null) sound = 0;
   room.sendAnnouncement(msg, targetId, color, style, sound);
-  //console.log("Announce: " + msg);
 }
 
 function whisper(msg, targetId, color, style, sound) {
-  if (color == null) {
-    color = 0x66c7ff;
-  }
-  if (style == null) {
-    style = "normal";
-  }
-  if (sound == null) {
-    sound = 0;
-  }
+  if (color == null) color = 0x66c7ff;
+  if (style == null) style = "normal";
+  if (sound == null) sound = 0;
   room.sendAnnouncement(msg, targetId, color, style, sound);
-  if (room.getPlayer(targetId) != null) {
-    //console.log("Whisper -> " + room.getPlayer(targetId).name + ": " + msg);
-  }
 }
 
-// optimize
 async function ballWarning(origColour, warningCount) {
   const intervals = [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1675, 1750];
   const colorSequence = ["0xffffff", origColour];
-
   for (let i = 0; i < intervals.length; i++) {
     await sleep(intervals[i]);
     if (game.warningCount === warningCount) {
@@ -2863,16 +2388,12 @@ async function ballWarning(origColour, warningCount) {
 function extraTime() {
   var extraSeconds = Math.ceil(game.extraTimeCount / 41);
   game.extraTimeEnd = gameTime * 60 + extraSeconds;
-  // announce("Extra time: " + extraSeconds + " Seconds", null, null, null, 1);
 }
 
 function secondsToMinutes(time) {
-  // Hours, minutes and seconds
   var hrs = ~~(time / 3600);
   var mins = ~~((time % 3600) / 60);
   var secs = ~~time % 60;
-
-  // Output like "1:01" or "4:03:59" or "123:03:59"
   var ret = "";
   if (hrs > 0) {
     ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
@@ -2883,113 +2404,79 @@ function secondsToMinutes(time) {
 }
 
 function blockThrowIn() {
-  var players = room.getPlayerList().filter((player) => player.team != 0);
+  var allPlayers = room.getPlayerList().filter((p) => p.team != 0);
   if (room.getBallPosition().y < 0) {
-    // top throw line
     if (game.outStatus == "redThrow") {
-      players.forEach(function (player) {
-        if (room.getPlayerDiscProperties(player.id).invMass != 9999999) {
-          room.setPlayerDiscProperties(player.id, { invMass: 9999999 });
+      allPlayers.forEach(function (p) {
+        if (room.getPlayerDiscProperties(p.id).invMass != 9999999) {
+          room.setPlayerDiscProperties(p.id, { invMass: 9999999 });
         }
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).y < 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 536870918) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 536870918 });
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).y < 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 536870918) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 536870918 });
           }
-          if (player.position.y < -460) {
-            room.setPlayerDiscProperties(player.id, { y: -445 });
+          if (p.position.y < -460) {
+            room.setPlayerDiscProperties(p.id, { y: -445 });
           }
         }
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
-        }
-        if (room.getDiscProperties(17).x != 1149) {
-          // show top red line
-          //room.setDiscProperties(17, { x: 1149 });
-        }
-        if (room.getDiscProperties(19).x != -1149) {
-          // hide top blue line
-          //room.setDiscProperties(19, { x: -1149 });
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
     if (game.outStatus == "blueThrow") {
-      players.forEach(function (player) {
-        if (room.getPlayerDiscProperties(player.id).invMass != 9999999) {
-          room.setPlayerDiscProperties(player.id, { invMass: 9999999 });
+      allPlayers.forEach(function (p) {
+        if (room.getPlayerDiscProperties(p.id).invMass != 9999999) {
+          room.setPlayerDiscProperties(p.id, { invMass: 9999999 });
         }
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).y < 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 536870918) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 536870918 });
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).y < 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 536870918) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 536870918 });
           }
-          if (player.position.y < -460) {
-            room.setPlayerDiscProperties(player.id, { y: -445 });
+          if (p.position.y < -460) {
+            room.setPlayerDiscProperties(p.id, { y: -445 });
           }
         }
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
-        }
-        if (room.getDiscProperties(19).x != 1149) {
-          // show top blue line
-          //room.setDiscProperties(19, { x: 1149 });
-        }
-        if (room.getDiscProperties(17).x != -1149) {
-          // hide top red line
-          //room.setDiscProperties(17, { x: -1149 });
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
   }
   if (room.getBallPosition().y > 0) {
-    // bottom throw line
     if (game.outStatus == "redThrow") {
-      players.forEach(function (player) {
-        if (room.getPlayerDiscProperties(player.id).invMass != 9999999) {
-          room.setPlayerDiscProperties(player.id, { invMass: 9999999 });
+      allPlayers.forEach(function (p) {
+        if (room.getPlayerDiscProperties(p.id).invMass != 9999999) {
+          room.setPlayerDiscProperties(p.id, { invMass: 9999999 });
         }
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).y > 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 536870918) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 536870918 });
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).y > 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 536870918) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 536870918 });
           }
-          if (player.position.y > 460) {
-            room.setPlayerDiscProperties(player.id, { y: 445 });
+          if (p.position.y > 460) {
+            room.setPlayerDiscProperties(p.id, { y: 445 });
           }
         }
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
-        }
-        if (room.getDiscProperties(21).x != 1149) {
-          // show bottom red line
-          //room.setDiscProperties(21, { x: 1149 });
-        }
-        if (room.getDiscProperties(23).x != -1149) {
-          // hide bottom blue line
-          //room.setDiscProperties(23, { x: -1149 });
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
     if (game.outStatus == "blueThrow") {
-      players.forEach(function (player) {
-        if (room.getPlayerDiscProperties(player.id).invMass != 9999999) {
-          room.setPlayerDiscProperties(player.id, { invMass: 9999999 });
+      allPlayers.forEach(function (p) {
+        if (room.getPlayerDiscProperties(p.id).invMass != 9999999) {
+          room.setPlayerDiscProperties(p.id, { invMass: 9999999 });
         }
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).y > 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 536870918) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 536870918 });
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).y > 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 536870918) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 536870918 });
           }
-          if (player.position.y > 460) {
-            room.setPlayerDiscProperties(player.id, { y: 445 });
+          if (p.position.y > 460) {
+            room.setPlayerDiscProperties(p.id, { y: 445 });
           }
         }
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
-        }
-        if (room.getDiscProperties(23).x != 1149) {
-          // show bottom blue line
-          //room.setDiscProperties(23, { x: 1149 });
-        }
-        if (room.getDiscProperties(21).x != -1149) {
-          // hide bottom red line
-          //room.setDiscProperties(21, { x: -1149 });
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
@@ -2997,78 +2484,55 @@ function blockThrowIn() {
 }
 
 function blockGoalKick() {
-  var players = room.getPlayerList().filter((player) => player.team != 0);
+  var allPlayers = room.getPlayerList().filter((p) => p.team != 0);
   if (room.getBallPosition().x < 0) {
-    // left side red goal kick
     if (game.outStatus == "redGK") {
-      players.forEach(function (player) {
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).x < 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 268435462) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 268435462 });
+      allPlayers.forEach(function (p) {
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).x < 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 268435462) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 268435462 });
           }
-          if (player.position.x < -840 && player.position.y > -320 && player.position.y < 320) {
-            room.setPlayerDiscProperties(player.id, { x: -825 });
+          if (p.position.x < -840 && p.position.y > -320 && p.position.y < 320) {
+            room.setPlayerDiscProperties(p.id, { x: -825 });
           }
         }
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
   }
   if (room.getBallPosition().x > 0) {
-    // right side blue goal kick
     if (game.outStatus == "blueGK") {
-      players.forEach(function (player) {
-        if (player.team == 1 && room.getPlayerDiscProperties(player.id).x > 0) {
-          if (room.getPlayerDiscProperties(player.id).cGroup != 268435462) {
-            room.setPlayerDiscProperties(player.id, { cGroup: 268435462 });
+      allPlayers.forEach(function (p) {
+        if (p.team == 1 && room.getPlayerDiscProperties(p.id).x > 0) {
+          if (room.getPlayerDiscProperties(p.id).cGroup != 268435462) {
+            room.setPlayerDiscProperties(p.id, { cGroup: 268435462 });
           }
-          if (player.position.x > 840 && player.position.y > -320 && player.position.y < 320) {
-            room.setPlayerDiscProperties(player.id, { x: 825 });
+          if (p.position.x > 840 && p.position.y > -320 && p.position.y < 320) {
+            room.setPlayerDiscProperties(p.id, { x: 825 });
           }
         }
-        if (player.team == 2 && room.getPlayerDiscProperties(player.id).cGroup != 2) {
-          room.setPlayerDiscProperties(player.id, { cGroup: 2 });
+        if (p.team == 2 && room.getPlayerDiscProperties(p.id).cGroup != 2) {
+          room.setPlayerDiscProperties(p.id, { cGroup: 2 });
         }
       });
     }
   }
 }
 
-// optimize
 function removeBlock() {
-  const redLineX = -1149;
-  const blueLineX = -1149;
-
-  const players = room.getPlayerList().filter((player) => player.team !== 0);
-
+  const allPlayers = room.getPlayerList().filter((p) => p.team !== 0);
   if (game.outStatus === "") {
-    players.forEach((player) => {
-      const discProperties = room.getPlayerDiscProperties(player.id);
-      const cGroup = player.team === 1 ? 2 : 4;
+    allPlayers.forEach((p) => {
+      const discProperties = room.getPlayerDiscProperties(p.id);
+      const cGroup = p.team === 1 ? 2 : 4;
       if (discProperties.cGroup !== cGroup) {
-        room.setPlayerDiscProperties(player.id, { cGroup });
-      }
-    });
-
-    const lines = [17, 19, 21, 23];
-    lines.forEach((line) => {
-      const lineX = room.getDiscProperties(line).x;
-      if (lineX !== redLineX && lineX !== blueLineX) {
-        room.setDiscProperties(line, { x: redLineX });
+        room.setPlayerDiscProperties(p.id, { cGroup });
       }
     });
   }
 }
-
-// setInterval(function () {
-//   room.sendAnnouncement("🔊 Join our Discord. https://discord.gg/pm55tVsQMX ", null, 0x5ee7ff, "small", 0);
-   // setTimeout(function () {
-   //   room.sendAnnouncement("⚽ RSI League Season 3", null, 0x61ddff, "normal", 0);
-   // }, 50000); // Wait 40 seconds after the first announcement
-// }, 220000);
-
 
 let redTeamPlayers = [];
 let blueTeamPlayers = [];
